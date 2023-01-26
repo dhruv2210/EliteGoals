@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slide Navbar</title>
+    {{!--
+    <link rel="stylesheet" type="text/css" href="./style.css"> --}}
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Jost', sans-serif;
+            background-color: #fff;
+        }
+
+        .main {
+            width: 450px;
+            height: 650px;
+            background: linear-gradient(-45deg, #3db3c5, #274685);
+            overflow: hidden;
+
+            border-radius: 10px;
+            box-shadow: 5px 20px 50px #000;
+        }
+
+        #chk {
+            display: none;
+        }
+
+        form {
+            margin: 40px;
+        }
+
+        .signup {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        label {
+            color: #fff;
+            font-size: 2.3em;
+            justify-content: center;
+            display: flex;
+            margin-bottom: 20px;
+            margin-top: -10px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+        }
+
+        div>input {
+            width: 60%;
+            height: 20px;
+            background: #e0dede;
+            justify-content: center;
+            display: flex;
+            margin: 14px 7px;
+            padding: 9px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        input {
+            width: 91%;
+            height: 20px;
+            background: #e0dede;
+            justify-content: center;
+            display: flex;
+            margin: 14px 7px;
+            padding: 9px;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .login button {
+            width: 60%;
+            height: 40px;
+            margin: 10px auto;
+            justify-content: center;
+            display: block;
+            color: #fff;
+            background: linear-gradient(-45deg, #3db3c5, #274685);
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+        }
+
+        .signup button {
+            width: 60%;
+            height: 40px;
+            margin: 10px auto;
+            justify-content: center;
+            display: block;
+            color: #fff;
+            background: #274685;
+            font-size: 1em;
+            font-weight: bold;
+            margin-top: 20px;
+            outline: none;
+            border: none;
+            border-radius: 5px;
+            transition: .2s ease-in;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: linear-gradient(-45deg, #3db3c5, #274685)b8;
+        }
+
+        .login {
+            height: 650px;
+            background: #eee;
+            border-radius: 60% / 10%;
+            transform: translateY(-120px);
+            transition: .8s ease-in-out;
+        }
+
+        .login label {
+            color: #274685;
+            transform: scale(.6);
+        }
+
+        #chk:checked~.login {
+            transform: translateY(-620px);
+        }
+
+        #chk:checked~.login label {
+            transform: scale(1);
+        }
+
+        #chk:checked~.signup label {
+            transform: scale(.6);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="signup">
+            {{!-- action="/register" method="post" --}}
+            <form onsubmit={func()}>
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <div style="display:flex; margin-bottom: -17px;">
+                    <input type="text" name="fname" placeholder="First name" required="">
+                    <input type="text" name="lname" placeholder="Last name" required="">
+                </div>
+                <div style="display:flex; margin-bottom: -17px;">
+                    <input type="date" name="dob" placeholder="D.O.B." required="">
+                    <input type="text" name="pyin" placeholder="Products You Interested in..." required="">
+                </div>
+
+                <input type="email" name="email" placeholder="Email" required="">
+
+                <input type="text" name="aadharNumber" data-type="adhaar-number" placeholder="Aadhar Number"
+                    maxLength="19" required="">
+                <div style="display:flex; margin-top: -17px;">
+                    <input type="password" id='password' name="pswd" placeholder="Password" required=""
+                        onclick='check()'>
+                    <input type="password" id='confirm_password' name="cnfrm_pswd" placeholder="Conform Password"
+                        required="" onclick='check()'>
+                    <span id='message'></span>
+                </div>
+                {{!-- <form action=""> --}}
+                    <div style="display:flex; margin-top: -17px;">
+                        <input type="tel" name="phone" placeholder="Mobile Number" required="" pattern="[6789][0-9]{9}"
+                            title="Please enter valid phone number">
+                        <button>Send OTP</button>
+                    </div>
+                {{!-- </form> --}}
+                <input type="text" name="otp" placeholder="Enter the OTP" style="margin: auto;" required="">
+                <button type="submit">Register</button>
+            </form>
+        </div>
+        {{!-- background:
+        url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38")
+        no-repeat center/ cover; --}}
+        <div class="login">
+            <form>
+                <label for="chk" aria-hidden="true">Login</label>
+                <input type="tel" name="phone" placeholder="Mobile Number" required="" maxlength="13"
+                    pattern="^((\+91[0-9]{10})|(0[0-9]{10}))$" title="Please enter valid phone number">
+
+                <input type="password" name="pswd" placeholder="Password" required="">
+                 <input type="" name="pswd" placeholder="Password" required="">
+
+                <button>Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        $('[data-type="adhaar-number"]').keyup(function () {
+            var value = $(this).val();
+            value = value.replace(/\D/g, "").split(/(?:([\d]{4}))/g).filter(s => s.length > 0).join("-");
+            $(this).val(value);
+        });
+
+        $('[data-type="adhaar-number"]').on("change, blur", function () {
+            var value = $(this).val();
+            var maxLength = $(this).attr("maxLength");
+            if (value.length != maxLength) {
+                $(this).addClass("highlight-error");
+            } else {
+                $(this).removeClass("highlight-error");
+            }
+        });
+
+        $('input[type=cnfrm_pswd]').on('click', validate);
+        function validate() {
+            var password1 = $("#password").val();
+            var password2 = $("#confirm_password").val();
+
+            if (password1 == password2) {
+                $(this).addClass("highlight-error");
+            }
+            else {
+                $(this).removeClass("highlight-error");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
