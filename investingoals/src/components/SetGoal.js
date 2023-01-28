@@ -10,28 +10,40 @@ const SetGoal = () => {
 
   return (
     <div>
-       {
+    <br></br>
+    <br></br>
+    <br></br>
+
+      {
         basket?.map((product) => (
-        <section className="section">
-          <div className="container" data-aos="fade-up">
-            <div className="row">
-              <div className="col-md-4">
-                <div className="step">
-                  <img
-                    src={product.imageURL}
-                    alt="Image"
-                    className="img-fluid"
-                  />
-                  <h3>{product.title}</h3>
-                  <br />
-                  <p>{product.price}/-</p>
-                  <button type="submit" className="btn btn-outline-light" ><b>Add to Goal </b></button>
+        
+          <div className="col order-md-1 order-sm-1 order-xs-1">
+
+            {/* <!-- ======= Contact Details Section ======= --> */}
+            <div className="container box" data-aos="fade-up">
+
+              <form id="enterinfo" class="row form-control-lg">
+                <div class="col-12 mt-3 mb-2">
+                  <input type="text" class="form-control" id="inputAddress"  defaultValue={product.price} readOnly/>
                 </div>
-              </div>
+                <div class="col-md-6 mt-2 mb-2">
+                  <input type="text" class="form-control" id="inputEmail4" defaultValue={product.title} readOnly/>
+                </div>
+                <div class="col-md-6 mt-2 mb-2">
+                  <input type="password" class="form-control" id="inputPassword4"
+                    placeholder="Your Mobile" />
+                </div>
+                <div class=" col-12 mt-2 mb-2 ">
+                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                  {/* <label for="floatingTextarea">Comments</label> */}
+                </div>
+                <div class="col-12 mt-2 mb-2">
+                  <button type="submit" className="btn btn-outline-light"><b>Add To Goal </b></button>
+                </div>
+              </form>
             </div>
           </div>
-        </section>    
-          ))} 
+        ))}
 
 
     </div>

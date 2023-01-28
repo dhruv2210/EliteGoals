@@ -18,53 +18,44 @@ function Home() {
     };
     fetchdata();
   }, []);
-
   const [{ basket }, dispatch] = useStateValue();
-
-
-
-  console.log('basket>>>>', basket);
+  console.log('basket>>>>', basket.length);
 
   return (
     products &&
     products?.data.map((product) => (
-   
-        <section className="section">
-          <div className="container" data-aos="fade-up">
-            <div className="row">
+      <section className="section">
+        <div className="container" data-aos="fade-up">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="step">
+                <img
+                  src={product.imageURL}
+                  alt="Image"
+                  className="img-fluid"
+                />
+                <h3>{product.title}</h3>
+                <br />
+                <p>{product.price}/-</p>
+                <button type="submit" className="btn btn-outline-light" onClick={(e) => {
+                  //  e.preventDefault();
 
-              <div className="col-md-4">
-                <div className="step">
-                  <img
-                    src={product.imageURL}
-                    alt="Image"
-                    className="img-fluid"
-                  />
-                  <h3>{product.title}</h3>
-                  <br />
-                  <p>{product.price}/-</p>
-                  <button type="submit" className="btn btn-outline-light" onClick={(e) => {
-                    //  e.preventDefault();
-
-                    dispatch({
-                      type: 'ADD_TO_BASKET',
-                      item: {
-                        title:product.title,
-                        imgURL:product.imageURL,
-                        price:product.price
-                      }
-                    })
-                    history("/SetGoal");
-                  }}><b>Add to Goal </b></button>
-                </div>
+                  dispatch({
+                    type: 'ADD_TO_BASKET',
+                    item: {
+                      title: product.title,
+                      imgURL: product.imageURL,
+                      price: product.price
+                    }
+                  })
+                  history("/SetGoal");
+                }}><b>Add to Goal </b></button>
               </div>
             </div>
           </div>
-        </section>
-      
-      
+        </div>
+      </section>
     ))
-
   );
 }
 
@@ -155,7 +146,7 @@ function Home() {
 
 //       &:nth-child(2) {
 //         display: block;
-//         -webkit-mask-image: none;
+//         -webkit-mask-image: none;m
 //       }
 //     }
 //   }
