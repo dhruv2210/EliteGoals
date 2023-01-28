@@ -26,7 +26,7 @@ router.post("/productsadd", (req, res) => {
   });
 });
 
-router.get("/products/get", (req, res) => {
+router.get("/productsget", (req, res) => {
   Products.find((err, data) => {
     if (err) {
       res.status(500).send(err);
@@ -87,7 +87,7 @@ router.post('/login', async (req, res) => {
             if (!isMatch) {
                 res.json({ error: "use error" });
             } else {
-              
+
                 res.json({ message: "use signin successfully" });
             }
         } else {
