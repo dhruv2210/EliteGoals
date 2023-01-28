@@ -18,44 +18,77 @@ function Home() {
     };
     fetchdata();
   }, []);
+
   const [{ basket }, dispatch] = useStateValue();
-  console.log('basket>>>>', basket.length);
+
+
+
+  console.log('basket>>>>', basket);
 
   return (
     products &&
     products?.data.map((product) => (
-      <section className="section">
-        <div className="container" data-aos="fade-up">
-          <div className="row">
-            <div className="col-md-4">
-              <div className="step">
-                <img
-                  src={product.imageURL}
-                  alt="Image"
-                  className="img-fluid"
-                />
-                <h3>{product.title}</h3>
-                <br />
-                <p>{product.price}/-</p>
-                <button type="submit" className="btn btn-outline-light" onClick={(e) => {
-                  //  e.preventDefault();
+   <div className='hello'>
+     
+        {/* <section className="section"> */}
+          <div className="container" data-aos="fade-up">
+            <div className="row">
 
-                  dispatch({
-                    type: 'ADD_TO_BASKET',
-                    item: {
-                      title: product.title,
-                      imgURL: product.imageURL,
-                      price: product.price
-                    }
-                  })
-                  history("/SetGoal");
-                }}><b>Add to Goal </b></button>
+              <div className="col-md-4">
+                <div className="step" style={{maxWidth:'60vh'}}>
+                  <img
+                    src={product.imageURL}
+                    alt="Image"
+                    className="img-fluid"
+                  />
+                  <h3>{product.title}</h3>
+                  <br />
+                  <p>{product.price}/-</p>
+                  <button type="submit" className="btn btn-outline-light" onClick={(e) => {
+                    //  e.preventDefault();
+
+                    dispatch({
+                      type: 'ADD_TO_BASKET',
+                      item: {
+                        title:product.title,
+                        imgURL:product.imageURL,
+                        price:product.price
+                      }
+                    })
+                    history("/SetGoal");
+                  }}><b>Add to Goal </b></button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        {/* </section> */}
+      </div>
+        // <div>
+        // <div className="col-lg-4 mb-4 mb-lg-0">
+        //         <div className="pricing h-100 text-center">
+        //           <span className="popularity">Best Value</span>
+        //           <h3>IPhone 14</h3>
+        //           <p>(128 gb)</p>
+        //           <ul className="list-unstyled">
+        //             <li>MRP: Rs. 80000 /-</li>
+        //             <li>Get discounts upto 20%</li>
+        //             <li>Effective Price: Rs. 64000 /-</li>
+        //           </ul>
+        //           <div className="price-cta">
+        //             <strong className="price">Rs. 5400/month</strong>
+        //             <p>for 12 months.</p>
+        //             <p>
+        //               <a href="#" className="btn btn-white">
+        //                 Add Goal
+        //               </a>
+        //             </p>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>
+      
     ))
+
   );
 }
 
@@ -146,7 +179,7 @@ function Home() {
 
 //       &:nth-child(2) {
 //         display: block;
-//         -webkit-mask-image: none;m
+//         -webkit-mask-image: none;
 //       }
 //     }
 //   }

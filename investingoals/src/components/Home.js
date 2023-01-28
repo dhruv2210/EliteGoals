@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 function App() {
   return (
     <>
-      <body>
         <Navbar />
         {/* Banner carousel */}
         <section className="hero-section" id="hero">
@@ -19,9 +18,9 @@ function App() {
               <g
                 id="Page-1"
                 stroke="none"
-                stroke-width="1"
+                strokeWidth="1"
                 fill="none"
-                fill-rule="evenodd"
+                fillRule="evenodd"
               >
                 <g
                   id="Apple-TV"
@@ -508,7 +507,7 @@ function App() {
         >
           <i className="bi bi-arrow-up-short"></i>
         </a>
-      </body>
+      
     </>
   );
 }

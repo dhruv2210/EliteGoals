@@ -21,9 +21,9 @@ function Contactus() {
             <g
               id="Page-1"
               stroke="none"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             >
               <g
                 id="Apple-TV"
@@ -115,24 +115,24 @@ function Contactus() {
                  {/* <!-- ======= Contact Details Section ======= --> */}
             <div className="container box" data-aos="fade-up">
 
-              <form id="enterinfo" class="row form-control-lg">
-                <div class="col-12 mt-3 mb-2">
-                  <input type="text" class="form-control" id="inputAddress" placeholder="Your Name" />
+              <form id="enterinfo" className="row form-control-lg">
+                <div className="col-12 mt-3 mb-2">
+                  <input type="text" className="form-control" id="inputAddress" placeholder="Your Name" />
                 </div>
-                <div class="col-md-6 mt-2 mb-2">
+                <div className="col-md-6 mt-2 mb-2">
 
-                  <input type="email" class="form-control" id="inputEmail4" placeholder=" Your E-mail" />
+                  <input type="email" className="form-control" id="inputEmail4" placeholder=" Your E-mail" />
                 </div>
-                <div class="col-md-6 mt-2 mb-2">
+                <div className="col-md-6 mt-2 mb-2">
 
-                  <input type="password" class="form-control" id="inputPassword4"
+                  <input type="password" className="form-control" id="inputPassword4"
                     placeholder="Your Mobile" />
                 </div>
-                <div class=" col-12 mt-2 mb-2 ">
-                  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                <div className=" col-12 mt-2 mb-2 ">
+                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
                   {/* <label for="floatingTextarea">Comments</label> */}
                 </div>
-                <div class="col-12 mt-2 mb-2">
+                <div className="col-12 mt-2 mb-2">
                   <button type="submit" className="btn btn-outline-light"><b>Send Message </b></button>
                 </div>
               </form>
