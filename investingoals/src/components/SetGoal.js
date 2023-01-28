@@ -24,10 +24,13 @@ const SetGoal = () => {
 
               <form id="enterinfo" class="row form-control-lg">
                 <div class="col-12 mt-3 mb-2">
-                  <input type="text" class="form-control" id="inputAddress"  defaultValue={product.price} readOnly/>
+                  <input type="text" class="form-control" id="inputAddress"  defaultValue={product.title} readOnly/>
                 </div>
                 <div class="col-md-6 mt-2 mb-2">
-                  <input type="text" class="form-control" id="inputEmail4" defaultValue={product.title} readOnly/>
+                 Product Price: <input type="text" class="form-control" id="inputEmail4" defaultValue={product.price} readOnly/>
+                </div>
+                <div class="col-md-6 mt-2 mb-2">
+                 Product of 75% :<input type="text" class="form-control" id="inputEmail4" defaultValue={((product.price)*75)/100} readOnly/>
                 </div>
                 <div class="col-md-6 mt-2 mb-2">
                   <input type="password" class="form-control" id="inputPassword4"
