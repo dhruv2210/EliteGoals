@@ -52,9 +52,7 @@ const Signup = () => {
       <br />
       <br />
       <div className="main">
-
-
-
+        
         <div className="container signup box col-6" data-aos="fade-up">
 
           <form id="form" className="row form-control-lg">
