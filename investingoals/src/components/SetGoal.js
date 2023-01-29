@@ -22,12 +22,15 @@ const SetGoal = () => {
             {/* <!-- ======= Contact Details Section ======= --> */}
             <div className="container box" data-aos="fade-up">
 
-              <form id="enterinfo" className="row form-control-lg">
-                <div className="col-12 mt-3 mb-2">
-                  <input type="text" className="form-control" id="inputAddress"  defaultValue={product.price} readOnly/>
+              <form id="enterinfo" class="row form-control-lg">
+                <div class="col-12 mt-3 mb-2">
+                  <input type="text" class="form-control" id="inputAddress"  defaultValue={product.title} readOnly/>
                 </div>
-                <div className="col-md-6 mt-2 mb-2">
-                  <input type="text" className="form-control" id="inputEmail4" defaultValue={product.title} readOnly/>
+                <div class="col-md-6 mt-2 mb-2">
+                 Product Price: <input type="text" class="form-control" id="inputEmail4" defaultValue={product.price} readOnly/>
+                </div>
+                <div class="col-md-6 mt-2 mb-2">
+                 Product of 75% :<input type="text" class="form-control" id="inputEmail4" defaultValue={((product.price)*75)/100} readOnly/>
                 </div>
                 <div className="col-md-6 mt-2 mb-2">
                   <input type="password" className="form-control" id="inputPassword4"
