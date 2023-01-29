@@ -10,6 +10,15 @@
     box-shadow: 2px 2px 5px;
    }
 
+
+a{
+    color: wheat;
+}
+
+a:hover{
+    color: white;
+}
+
 /* body {
     margin: 0;
     padding: 0;

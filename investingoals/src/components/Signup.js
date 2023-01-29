@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const Signup = () => {
-  
+
   const history = useNavigate();
   const [user, setUser] = useState({
     fname: "", lname: "", dob: "", email: "", phone: "", aadharNumber: "", pyin: "", pswd: "", cpswd: ""
@@ -31,11 +31,11 @@ const Signup = () => {
       },
       body: JSON.stringify({
         fname, lname, dob, email, phone, aadharNumber, pyin, pswd, cpswd
-        
+
       })
     });
     const data = await res.json();
-    
+
     if (data.status === 422 || !data) {
       window.alert("INvalid Registration");
       console.log("Invalid Registration");
@@ -45,99 +45,120 @@ const Signup = () => {
       history("/login");
     }
   }
-    return (
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <div className="main">
-          {/* <input type="checkbox" id="chk" aria-hidden="true"></input> */}
-          <div className="signup">
-            <form className='form' method="post">
-              <label htmlFor="chk" aria-hidden="true">Sign up</label>
-              <div className="wrapper">
-                <input type="text" name="fname"
-                  value={user.fname}
-                  onChange={handleInputs}
-                  placeholder="First name" required=""></input>
-                <input type="text" name="lname"
-                  value={user.lname}
-                  onChange={handleInputs}
-                  placeholder="Last name" required=""></input>
-              </div>
-              <div className="wrapper">
-                <input type="date" name="dob"
-                  value={user.dob}
-                  onChange={handleInputs}
-                  placeholder="D.O.B." required=""></input>
-                <input type="text" name="pyin"
-                  value={user.pyin}
-                  onChange={handleInputs}
-                  placeholder="Products You Interested in..." required=""></input>
-              </div>
+  return (
+    <div>
+      <br />
+      <br />
+      <br />
+      <br />
+      <div className="main">
 
-              <input type="email" name="email"
+
+
+        <div className="container signup box col-6" data-aos="fade-up">
+
+          <form id="form" className="row form-control-lg">
+            <div className="col-6 mt-3 mb-2">
+              <input className="form-control"
+                type="text"
+                name="fname"
+                value={user.fname}
+                onChange={handleInputs}
+                placeholder="First name" required=""
+              />
+            </div>
+
+            <div className="col-6 mt-3 mb-2">
+              <input className="form-control"
+                type="text" name="lname"
+                value={user.lname}
+                onChange={handleInputs}
+                placeholder="Last name" required=""
+              />
+            </div>
+
+            <div className="col-6 mt-3 mb-2">
+              <input className="form-control"
+                type="tel" name="phone"
+                value={user.phone}
+                onChange={handleInputs}
+                placeholder="Mobile Number" required="" pattern="[6789][0-9]{9}"
+                title="Please enter valid phone number"
+              />
+            </div>
+
+            <div className="col-6 mt-3 mb-2">
+              <input className="form-control"
+                type="date" name="dob"
+                value={user.dob}
+                onChange={handleInputs}
+                placeholder="D.O.B." required=""
+              />
+            </div>
+
+            <div className="col-12 mt-3 mb-2">
+              <input className="form-control"
+                type="email" name="email"
                 value={user.email}
                 onChange={handleInputs}
-                placeholder="Email" required=""></input>
-              <input type="text" name="aadharNumber" 
+                placeholder="Email" required=""
+              />
+            </div>
+
+            <div className="col-12 mt-3 mb-2">
+              <input className="form-control"
+                type="text" name="aadharNumber"
                 value={user.aadharNumber}
                 onChange={handleInputs}
                 placeholder="Aadhar Number"
-                 required=""></input>
-              <div className="wrapper">
-                <input type="password" id='password' name="pswd"
-                  value={user.pswd}
-                  onChange={handleInputs}
-                  placeholder="Password" required=""
-                ></input>
-                <input type="password" id='confirm_password' name="cpswd"
-                  value={user.cpswd}
-                  onChange={handleInputs}
-                  placeholder="Conform Password"
-                  required=""></input>
-                <span id='message'></span>
-              </div>
+                required=""
+              />
+            </div>
 
-              <div className="wrapper">
-                <input type="tel" name="phone"
-                  value={user.phone}
-                  onChange={handleInputs}
-                  placeholder="Mobile Number" required="" pattern="[6789][0-9]{9}"
-                  title="Please enter valid phone number"></input>
-                {/* <button>Send OTP</button> */}
-              </div>
-              {/* <input type="text" name="otp" placeholder="Enter the OTP" required=""></input> */}
-              <input type="submit" name="signup" id="signup" value="register" onClick={PostData}/>Register
-            </form>
-          </div>
+            <div className="col-md-12 mt-2 mb-2">
+              <input
+                className="form-control"
+                type="text" name="pyin"
+                value={user.pyin}
+                onChange={handleInputs}
+                placeholder="Products You Interested in..." required="" />
+            </div>
+
+            <div className="col-6 mt-3 mb-2">
+              <input className="form-control"
+                type="password" id='password' name="pswd"
+                value={user.pswd}
+                onChange={handleInputs}
+                placeholder="Password" required=""
+              />
+            </div>
+
+            <div className="col-6 mt-3 mb-2">
+              <input className="form-control"
+                type="password" id='confirm_password' name="cpswd"
+                value={user.cpswd}
+                onChange={handleInputs}
+                placeholder="Conform Password"
+                required=""
+              /> <span id='message'></span>
+            </div>
+
+            <div className="col-12 mt-2 mb-2">
+              <input type="checkbox"  required=""/> <a href="">Agree to terms and condition.</a>
+            </div>
+
+            <div className="col-12 mt-2 mb-2">
+              <button className="btn btn-outline-light" type="submit" name="Login" id="login" value="register"  ><b>Register </b></button>
+            </div>
+
+          </form>
         </div>
       </div>
-    )
-  }
-  // <input type="submit" name="signup" id="signup" value="register" onClick={PostData}>Register</input>
+    </div>
+  )
+}
 
 export default Signup;
 
 
 
-// import React from 'react'
-
-// const Signup = () => {
-//   return (
-//     <div>
-//       <br></br>
-//       <br></br>
-//       <br></br>
-//       <br></br>
-//       <br></br>
-//       <br></br>
-//       <br></br>
-//       <br></br>
-//       sdfghjsdfghgj szdfghdasdfgh asdfghjk wertyui asdfghjk xcvbnqwertyui
-//     </div>
-//   )
-// }
-
-// export default Signup
