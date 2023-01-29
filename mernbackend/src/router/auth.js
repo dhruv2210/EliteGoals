@@ -4,6 +4,7 @@ const Products = require('../models/Products');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const authenticate= require("../middleware/authenticate");
 
 require('../db/conn');
 
@@ -66,6 +67,7 @@ router.post('/login', async (req, res) => {
     // console.log(req.body);
     // res.json({message:"awesome"})
     try {
+      let token;
         const { phone, pswd } = req.body;
         if (!phone || !pswd) {
             return res.status(400).json({ error: "Plz filled the field Loginnnn" });
@@ -78,12 +80,14 @@ router.post('/login', async (req, res) => {
 
 
             const token = await userLogin.generateAuthToken();
-            // console.log(token);
+            console.log(token);
 
             res.cookie("jwtoken", token, {
                 expires: new Date(Date.now() + 25892000000),
                 htttpOnly:true
             });
+
+
             if (!isMatch) {
                 res.json({ error: "use error" });
             } else {

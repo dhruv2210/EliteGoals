@@ -34,10 +34,8 @@ function AboutUs() {
             </g>
           </svg>
         </div>
-<br/>
-<br/>
-<br/>
-<br/>
+
+
         <div className="container">
           <div className="row align-items-center">
             <div className="col-12">
@@ -56,13 +54,17 @@ function AboutUs() {
         </div>
       </section>
 
-      <div className="container col-6 box boxSizeAboutus" data-aos="fade-up">
+      <div className="container col-8 box boxSizeAboutus" data-aos="fade-up">
         <br></br>
       <div className="parentpara">
-        <p className="aboutParaHead">  Welcome to EliteGoals! </p>
+        <h3 className="aboutParaHead">  <b>Welcome to EliteGoals!</b> </h3>
       </div>
     
       <p className="aboutPara aboutParaHead">
+      We believe that everyone should have the opportunity to invest in their goals, and we strive to make our services accessible and affordable for all. With Invest in Goal, you can take control of your financial future and start working towards the things that matter to you.
+        
+      <br/>
+      <br/>
       We are a website dedicated to helping you achieve your goals. Whether you want to save for a new car, a motorcycle, or any other big purchase, we are here to support you every step of the way. We understand that setting goals can be challenging, and we believe that by providing you with the tools and resources you need, we can make it easier for you to achieve your dreams.
       </p>
 

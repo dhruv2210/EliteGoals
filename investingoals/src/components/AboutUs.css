@@ -1,10 +1,11 @@
 .aboutPara{
     margin: 30px;
     color: white;
+    font-size: 20px;
 }
 
-.aboutPara:hover{
-    color: wheat;
+.parentpara:hover{
+    color: rgb(255, 255, 255);
 }
 
 .parentpara{

@@ -6,6 +6,7 @@ import Card from "./Card";
 import { useStateValue } from "../StateProvider";
 // import Navbar from "./Navbar";
 import { useNavigate } from 'react-router-dom';
+import "./Goals.css";
 
 function Home() {
   const history = useNavigate();
@@ -26,67 +27,43 @@ function Home() {
   console.log('basket>>>>', basket);
 
   return (
+    
     products &&
     products?.data.map((product) => (
-   <div className='hello'>
-     
-        {/* <section className="section"> */}
-          <div className="container" data-aos="fade-up">
-            <div className="row">
+     <span className="rowwise">
+    
+        
+            <div className="col-md-12">
+              <div className="step">
+                <img id='goalsimg'
+                  src={product.imageURL}
+                  alt="Image"
+                  className="img-fluid"
+                />
+                <h3>{product.title}</h3>
+                <br />
+                <p>{product.price}/-</p>
+                <button type="submit" className="goalbutton btn btn-outline-light" onClick={(e) => {
+                  //  e.preventDefault();
 
-              <div className="col-md-4">
-                <div className="step" style={{maxWidth:'60vh'}}>
-                  <img
-                    src={product.imageURL}
-                    alt="Image"
-                    className="img-fluid"
-                  />
-                  <h3>{product.title}</h3>
-                  <br />
-                  <p>{product.price}/-</p>
-                  <button type="submit" className="btn btn-outline-light" onClick={(e) => {
-                    //  e.preventDefault();
-
-                    dispatch({
-                      type: 'ADD_TO_BASKET',
-                      item: {
-                        title:product.title,
-                        imgURL:product.imageURL,
-                        price:product.price
-                      }
-                    })
-                    history("/SetGoal");
-                  }}><b>Add to Goal </b></button>
-                </div>
+                  dispatch({
+                    type: 'ADD_TO_BASKET',
+                    item: {
+                      title: product.title,
+                      imgURL: product.imageURL,
+                      price: product.price
+                    }
+                  })
+                  history("/SetGoal");
+                }}>Add to Goal </button>
               </div>
             </div>
-          </div>
-        {/* </section> */}
-      </div>
-        // <div>
-        // <div className="col-lg-4 mb-4 mb-lg-0">
-        //         <div className="pricing h-100 text-center">
-        //           <span className="popularity">Best Value</span>
-        //           <h3>IPhone 14</h3>
-        //           <p>(128 gb)</p>
-        //           <ul className="list-unstyled">
-        //             <li>MRP: Rs. 80000 /-</li>
-        //             <li>Get discounts upto 20%</li>
-        //             <li>Effective Price: Rs. 64000 /-</li>
-        //           </ul>
-        //           <div className="price-cta">
-        //             <strong className="price">Rs. 5400/month</strong>
-        //             <p>for 12 months.</p>
-        //             <p>
-        //               <a href="#" className="btn btn-white">
-        //                 Add Goal
-        //               </a>
-        //             </p>
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>
+          
       
+        
+     
+      </span>
+    
     ))
 
   );

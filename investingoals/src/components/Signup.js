@@ -47,10 +47,23 @@ const Signup = () => {
   }
   return (
     <div>
-      <br />
-      <br />
-      <br />
-      <br />
+      <section className="hero-section inner-page">
+        
+       
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-12">
+              <div className="row justify-content-center">
+                <div className="col-md-7 text-center hero-text">
+                  <h1 data-aos="fade-up" data-aos-delay="0">
+                    Signup
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="main">
 
         <div className="container signup box col-6" data-aos="fade-up">

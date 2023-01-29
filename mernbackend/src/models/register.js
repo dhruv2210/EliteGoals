@@ -42,7 +42,10 @@ const CustomerRegistrationSchema = new mongoose.Schema({
     },
     tokens: [
         {
-            token: String
+            token: {
+                type: String,
+                required: true
+            }
 
         }
     ]
@@ -59,7 +62,7 @@ CustomerRegistrationSchema.pre('save', async function (next) {
 
 CustomerRegistrationSchema.methods.generateAuthToken = async function () {
     try {
-        let token = jwt.sign({ _id: this._id }, "QWERTYUISDFGHJSADFGHJXCVBNWERFGHJWERTYUWERTYHJSDFGHJZXCVBNMASDFGHJK");
+        let token = jwt.sign({ _id: this._id }, "QWERTYUISDFGHJSADFGHJXCVBNWERFGHJWERTYUWERTYHJSDFERTYUGHJZXCVBNMASDFGHJK");
         this.tokens = this.tokens.concat({ token: token });
         await this.save();
         return token;
@@ -67,6 +70,7 @@ CustomerRegistrationSchema.methods.generateAuthToken = async function () {
         console.log(error);
     }
 }
+
 
 const Register = new mongoose.model("Register", CustomerRegistrationSchema);
 module.exports = Register;
