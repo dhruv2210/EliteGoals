@@ -1,8 +1,20 @@
 const jwt = require("jsonwebtoken");
-const User = require("../middleware/authenticate");
+const Register = require("../models/register");
 
 const Authenticate = async (req, res) => {
     try {
+        const token =req.cookies.jwtoken;
+        const verifytoken = jwt.verify(token,"QWERTYUISDFGHJSADFGHJXCVBNWERFGHJWERTYUWERTYHJSDFERTYUGHJZXCVBNMASDFGHJK");
+        const rootUser = await Register.findOne({_id:verifytoken._id,"tokens.token":token})
+        if(!rootUser)
+        {
+            throw new Error('USer not found');
+
+        }
+        req.token=token;
+        req.rootUser=rootUser;
+        req.userID=rootUser._id;
+        next();
 
     } catch (error) {
         res.status(401).send("Unautorised : No token provided");

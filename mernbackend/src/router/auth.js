@@ -5,6 +5,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const authenticate= require("../middleware/authenticate");
+const { application } = require('express');
 
 require('../db/conn');
 
@@ -101,5 +102,12 @@ router.post('/login', async (req, res) => {
         console.log(error);
     }
 });
+
+
+// profile page
+router.get('./Goals',authenticate,(req,res)=>{
+  console.log(`hello my profile`);
+  res.send(`hello about world from the server`);
+})
 
 module.exports = router;

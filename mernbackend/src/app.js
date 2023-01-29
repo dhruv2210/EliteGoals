@@ -19,10 +19,10 @@ app.use(express.json());
 const Register = require("./models/register");
 
 
-const middleware = (req, res, next) => {
-    console.log('Hello my middleware');
-    next();
-}
+// const middleware = (req, res, next) => {
+//     console.log('Hello my middleware');
+//     next();
+// }
 
 app.use(require('./router/auth'));
 
