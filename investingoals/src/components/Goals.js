@@ -6,6 +6,7 @@ import Card from "./Card";
 import { useStateValue } from "../StateProvider";
 // import Navbar from "./Navbar";
 import { useNavigate } from 'react-router-dom';
+import "./Goals.css";
 
 function Home() {
   const history = useNavigate();
@@ -22,14 +23,15 @@ function Home() {
   console.log('basket>>>>', basket.length);
 
   return (
+    
     products &&
     products?.data.map((product) => (
-      <section className="section">
-        <div className="container" data-aos="fade-up">
-          <div className="row">
-            <div className="col-md-4">
+     <span className="rowwise">
+    
+        
+            <div className="col-md-12">
               <div className="step">
-                <img
+                <img id='goalsimg'
                   src={product.imageURL}
                   alt="Image"
                   className="img-fluid"
@@ -37,7 +39,7 @@ function Home() {
                 <h3>{product.title}</h3>
                 <br />
                 <p>{product.price}/-</p>
-                <button type="submit" className="btn btn-outline-light" onClick={(e) => {
+                <button type="submit" className="goalbutton btn btn-outline-light" onClick={(e) => {
                   //  e.preventDefault();
 
                   dispatch({
@@ -49,12 +51,15 @@ function Home() {
                     }
                   })
                   history("/SetGoal");
-                }}><b>Add to Goal </b></button>
+                }}>Add to Goal </button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          
+      
+        
+     
+      </span>
+    
     ))
   );
 }

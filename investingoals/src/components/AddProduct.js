@@ -1,4 +1,5 @@
 import axios from 'axios';
+import "./addProduct.css";
 import React, { useState } from "react";
 import styled from "styled-components";
 function AddProduct() {
@@ -18,120 +19,61 @@ function AddProduct() {
 
   };
   return (
-
-    <Container>
-      <FormContainer>
-        <h3>Add Product</h3>
-
-        <InputContainer>
-          <p>Title</p>
-          <input
+<>
+<br></br>
+<br></br>
+  <div className="container box col-5" data-aos="fade-up">
+      
+      <h3 className="addProductHead">Add Product</h3>
+      <form id="enterinfo" className="row form-control-lg">
+        <div className="col-12 mt-3 mb-2">
+          Title: <input className="form-control"
             type="text"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            placeholder="Title"
           />
-        </InputContainer>
-        <InputContainer>
-          <p>ImageURL</p>
-          <input
+        </div>
+
+        <div className="col-12 mt-3 mb-2">
+          ImageURL: <input className="form-control"
             type="text"
             onChange={(e) => setImageURL(e.target.value)}
             value={imageURL}
+            placeholder="ImageURL"
           />
-        </InputContainer>
-        <InputContainer>
-          <p>Price</p>
-          <input
+        </div>
+
+        <div className="col-12 mt-3 mb-2">
+          Price: <input className="form-control"
             type="number"
             onChange={(e) => setPrice(e.target.value)}
             value={price}
           />
-        </InputContainer>
-        <InputContainer>
-          <p>Rating</p>
-          <input
+        </div>
+
+        <div className="col-12 mt-3 mb-2">
+          Rating: <input className="form-control"
             type="number"
             onChange={(e) => setRating(e.target.value)}
             value={rating}
           />
-        </InputContainer>
+        </div>
 
-        <Button onClick={addProduct}>Add Product</Button>
-      </FormContainer>
-    </Container>
+
+
+        <div className="col-12 mt-2 mb-2">
+          <button className="btn btn-outline-light" type="submit" name="Login" id="login" value="addProduct" onClick={addProduct}><b>Add Product</b></button>
+        </div>
+
+      </form>
+    </div>
+
+    </>
+  
   );
 }
 
-const Container = styled.div`
-  width: 40%;
-  min-width: 450px;
-  height: fit-content;
-  padding: 15px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
-const Logo = styled.div`
-  width: 120px;
-  margin-bottom: 20px;
-  img {
-    width: 100%;
-  }
-`;
-
-const FormContainer = styled.form`
-  border: 1px solid lightgray;
-  width: 55%;
-  height: fit-content;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
-
-  h3 {
-    font-size: 28px;
-    font-weight: 400;
-    line-height: 33px;
-    align-self: flex-start;
-
-    margin-bottom: 10px;
-  }
-`;
-
-const InputContainer = styled.div`
-  width: 100%;
-  padding: 10px;
-
-  p {
-    font-size: 14px;
-    font-weight: 600;
-  }
-
-  input {
-    width: 95%;
-    height: 33px;
-    padding-left: 5px;
-    border-radius: 5px;
-    border: 1px solid lightgray;
-    margin-top: 5px;
-
-    &:hover {
-      border: 1px solid orange;
-    }
-  }
-`;
-
-const Button = styled.button`
-  width: 70%;
-  height: 35px;
-  background-color: #fgfgfg;
-  border: none;
-  outline: none;
-  border-radius: 10px;
-  margin-top: 30px;
-`;
 
 export default AddProduct;
