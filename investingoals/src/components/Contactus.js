@@ -7,10 +7,10 @@ import "./ContactUs.css";
 function Contactus() {
   return (
     <>
-         {/* <!-- ======= Get in touch Section ======= --> */}
+      {/* <!-- ======= Get in touch Section ======= --> */}
       <section className="hero-section inner-page">
-        
-       
+
+
         <div className="container">
           <div className="row align-items-center">
             <div className="col-12">
@@ -25,63 +25,63 @@ function Contactus() {
           </div>
         </div>
       </section>
-         {/* <!-- ======= Get in touch Section ======= --> */}
+      {/* <!-- ======= Get in touch Section ======= --> */}
 
       <div className="container">
         <div className="row">
-               {/* <!-- ======= Form Section ======= --> */}
+          
           <div className="col-4 order-md-2 order-sm-2 order-none-2">
+           {/* <!-- ======= Contact Details Section ======= --> */}
             <div className="container box" data-aos="fade-up">
-            <p className="social">
-            {/* <a href="#"><span className="bi bi-twitter"></span></a>
+              <p className="social">
+                {/* <a href="#"><span className="bi bi-twitter"></span></a>
             <a href="#"><span className="bi bi-facebook"></span></a> */}
-           <div className="symbol first">
+                <div className="symbol first">
+                  <table>
+                    <tr>
+                      <td><a href="#"><span className="bi bi-envelope"></span></a></td>
+                      <td><h4 className="a">devvashi@gmail.com</h4></td>
+                    </tr>
+                  </table>
 
-            <table>
-              <tr>
-                <td><a href="#"><span className="bi bi-envelope"></span></a></td>
-                <td><h4 className="a">devvashi@gmail.com</h4></td>
-              </tr>
-            </table>
-              
-           </div>
-           <div className="symbol">
+                </div>
+                <div className="symbol">
 
-           <table>
-              <tr>
-                <td><a href="#"><span className="bi bi-phone"></span></a></td>
-                <td><h4 className="a">9408895799</h4></td>
-              </tr>
-            </table>
-             
-           </div>
-           <div className="symbol">
+                  <table>
+                    <tr>
+                      <td><a href="#"><span className="bi bi-phone"></span></a></td>
+                      <td><h4 className="a">9408895799</h4></td>
+                    </tr>
+                  </table>
 
-           <table>
-              <tr>
-                <td><a href="#"><span className="bi bi-linkedin"></span></a></td>
-                <td><h4 className="a">dskdhaf</h4></td>
-              </tr>
-            </table>
-            
-           </div>
-           <div className="symbol">
+                </div>
+                <div className="symbol">
 
-           <table>
-              <tr>
-                <td> <a href="#"><span className="bi bi-instagram"></span></a></td>
-                <td><h4 className="a">@sdksjdfh</h4></td>
-              </tr>
-            </table>
-           
-           </div>
-          </p>
+                  <table>
+                    <tr>
+                      <td><a href="#"><span className="bi bi-linkedin"></span></a></td>
+                      <td><h4 className="a">dskdhaf</h4></td>
+                    </tr>
+                  </table>
+
+                </div>
+                <div className="symbol">
+
+                  <table>
+                    <tr>
+                      <td> <a href="#"><span className="bi bi-instagram"></span></a></td>
+                      <td><h4 className="a">@sdksjdfh</h4></td>
+                    </tr>
+                  </table>
+
+                </div>
+              </p>
             </div>
 
           </div>
-          <div className="col order-md-1 order-sm-1 order-xs-1">
 
-                 {/* <!-- ======= Contact Details Section ======= --> */}
+          <div className="col order-md-1 order-sm-1 order-none-1">
+              {/* <!-- ======= Form Section ======= --> */}
             <div className="container box" data-aos="fade-up">
 
               <form id="enterinfo" className="row form-control-lg">

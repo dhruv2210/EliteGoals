@@ -44,9 +44,6 @@ function AboutUs() {
                   <h1 data-aos="fade-up" data-aos-delay="0">
                     About Us
                   </h1>
-                  <p className="mb-5" data-aos="fade-up" data-aos-delay="100">
-                    INVEST IN YOUR GOALS !
-                  </p>
                 </div>
               </div>
             </div>

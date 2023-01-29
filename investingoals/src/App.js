@@ -28,6 +28,7 @@ function App() {
             <Route exact path="/AddProduct" element={<AddProduct></AddProduct>} />
         </Routes>
         <Footer></Footer>
+        
   </Router>
 </>;
 }
