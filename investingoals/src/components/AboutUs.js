@@ -56,16 +56,24 @@ function AboutUs() {
         </div>
       </section>
 
-      <div className="container box " data-aos="fade-up">
+      <div className="container col-6 box boxSizeAboutus" data-aos="fade-up">
         <br></br>
       <div className="parentpara">
         <p className="aboutParaHead">  Welcome to EliteGoals! </p>
       </div>
     
-      <p className="aboutPara">
+      <p className="aboutPara aboutParaHead">
       We are a website dedicated to helping you achieve your goals. Whether you want to save for a new car, a motorcycle, or any other big purchase, we are here to support you every step of the way. We understand that setting goals can be challenging, and we believe that by providing you with the tools and resources you need, we can make it easier for you to achieve your dreams.
       </p>
 
+      <div className="parentpara">
+      <p className="social">
+            <a href="#"><span className="bi bi-twitter"></span></a>   &nbsp;
+            <a href="#"><span className="bi bi-facebook"></span></a>  &nbsp;
+            <a href="#"><span className="bi bi-instagram"></span></a> &nbsp;
+            <a href="#"><span className="bi bi-linkedin"></span></a>
+      </p>
+      </div>
       </div>
     </>
   );
