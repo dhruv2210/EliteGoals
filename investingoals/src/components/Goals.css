@@ -4,7 +4,13 @@
     /* background-color: black; */
 
 }
-
+.top{
+    text-align: right;
+    margin-right: 1.5rem;
+}
+.step>p{
+    width:18rem;
+}
 #goalsimg{
     width: 18rem;
     height: 18rem  !important;

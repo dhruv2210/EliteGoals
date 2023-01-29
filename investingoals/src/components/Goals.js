@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Rating from "@material-ui/lab/Rating"
 // import Products from '../../../mernbackend/src/models/Products';
 import Card from "./Card";
 import { useStateValue } from "../StateProvider";
@@ -41,8 +42,12 @@ function Home() {
                   className="img-fluid"
                 />
                 <h3>{product.title}</h3>
-                <br />
-                <p>{product.price}/-</p>
+                <p>{product.desc}</p>
+                
+                <h4>{product.price}/-</h4>
+                <Rating name="half-rating-read" defaultValue={product.rating} precision={0.5} readOnly />
+
+                <br/>
                 <button type="submit" className="goalbutton btn btn-outline-light" onClick={(e) => {
                   //  e.preventDefault();
 

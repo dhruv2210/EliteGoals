@@ -5,13 +5,14 @@ import styled from "styled-components";
 function AddProduct() {
   const [title, setTitle] = useState("");
   const [imageURL, setImageURL] = useState("");
+  const [desc, setDesc] = useState("");
   const [price, setPrice] = useState(0);
   const [rating, setRating] = useState(0);
 
   const addProduct = async (e) => {
     e.preventDefault();
     try {
-      const data = await axios.post("/productsadd", { title, imageURL, price, rating });
+      const data = await axios.post("/productsadd", { title, imageURL, desc,price, rating });
       console.log(data);
     } catch (err) {
       console.log(err);
@@ -41,6 +42,14 @@ function AddProduct() {
             onChange={(e) => setImageURL(e.target.value)}
             value={imageURL}
             placeholder="ImageURL"
+          />
+        </div>
+        <div className="col-12 mt-3 mb-2">
+          Product Description: <input className="form-control"
+            type="text"
+            onChange={(e) => setDesc(e.target.value)}
+            value={desc}
+            placeholder="Product Description"
           />
         </div>
 

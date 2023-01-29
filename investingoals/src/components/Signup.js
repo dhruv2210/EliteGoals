@@ -159,7 +159,7 @@ const Signup = () => {
             </div>
 
             <div className="col-12 mt-2 mb-2">
-              <button className="btn btn-outline-light" type="submit" name="Login" id="login" value="register"  ><b>Register </b></button>
+              <button className="btn btn-outline-light" type="submit" name="Login" id="login" value="register" onClick={PostData}  ><b>Register </b></button>
             </div>
 
           </form>
