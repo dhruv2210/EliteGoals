@@ -1,4 +1,5 @@
 import React from "react";
+import "./AboutUs.css";
 // import "../style.css";
 function AboutUs() {
   return (
@@ -55,12 +56,16 @@ function AboutUs() {
         </div>
       </section>
 
-      <div className="container box" data-aos="fade-up">
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+      <div className="container box " data-aos="fade-up">
+        <br></br>
+      <div className="parentpara">
+        <p className="aboutParaHead">  Welcome to EliteGoals! </p>
+      </div>
+    
+      <p className="aboutPara">
+      We are a website dedicated to helping you achieve your goals. Whether you want to save for a new car, a motorcycle, or any other big purchase, we are here to support you every step of the way. We understand that setting goals can be challenging, and we believe that by providing you with the tools and resources you need, we can make it easier for you to achieve your dreams.
+      </p>
+
       </div>
     </>
   );

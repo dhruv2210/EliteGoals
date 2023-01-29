@@ -1,0 +1,16 @@
+.aboutPara{
+    margin: 30px;
+    color: white;
+}
+
+.aboutPara:hover{
+    color: wheat;
+}
+
+.parentpara{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: wheat;
+}
+
