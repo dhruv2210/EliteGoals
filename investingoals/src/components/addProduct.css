@@ -3,3 +3,7 @@
     text-align: center;
     color: white;
 }
+#priceinput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }

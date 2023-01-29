@@ -32,7 +32,7 @@ function AddProduct() {
             type="text"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
-            placeholder="Title"
+            required=""
           />
         </div>
 
@@ -41,7 +41,7 @@ function AddProduct() {
             type="text"
             onChange={(e) => setImageURL(e.target.value)}
             value={imageURL}
-            placeholder="ImageURL"
+            required=""
           />
         </div>
         <div className="col-12 mt-3 mb-2">
@@ -49,23 +49,25 @@ function AddProduct() {
             type="text"
             onChange={(e) => setDesc(e.target.value)}
             value={desc}
-            placeholder="Product Description"
+            required=""
           />
         </div>
 
         <div className="col-12 mt-3 mb-2">
-          Price: <input className="form-control"
+          Price: <input id='priceinput' className="form-control"
             type="number"
             onChange={(e) => setPrice(e.target.value)}
             value={price}
+            required=""
           />
         </div>
 
         <div className="col-12 mt-3 mb-2">
           Rating: <input className="form-control"
-            type="number"
+            type="number" min="1" max="5"
             onChange={(e) => setRating(e.target.value)}
             value={rating}
+            required=""
           />
         </div>
 

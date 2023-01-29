@@ -61,8 +61,8 @@ const SetGoal = () => {
                     placeholder="Your Mobile" />
                 </div>
                 <div className=" col-12 mt-2 mb-2 ">
-                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                  {/* <label for="floatingTextarea">Comments</label> */}
+                  <textarea className="form-control"  id="floatingTextarea" defaultValue={product.desc} readOnly></textarea>
+                
                 </div>
                 <div className="col-12 mt-2 mb-2">
                   <button type="submit" className="btn btn-outline-light"><b>Add To Goal </b></button>
