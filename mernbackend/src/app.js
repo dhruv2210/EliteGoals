@@ -10,6 +10,7 @@ require("./db/conn");
 app.use(express.json());
 const Register = require("./models/register");
 
+
 const middleware = (req, res, next) => {
     console.log('Hello my middleware');
     next();

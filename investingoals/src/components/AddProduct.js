@@ -9,20 +9,17 @@ function AddProduct() {
 
   const addProduct = async (e) => {
     e.preventDefault();
-    try{
+    try {
       const data = await axios.post("/productsadd", { title, imageURL, price, rating });
       console.log(data);
-    }catch(err){
+    } catch (err) {
       console.log(err);
     }
 
   };
   return (
-    <Container>
-      <Logo>
-      
-      </Logo>
 
+    <Container>
       <FormContainer>
         <h3>Add Product</h3>
 
