@@ -1,18 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 
 function Navbar() {
-
-  function myFunction() {
-    var x = document.getElementById("navbar");
-    if (x.className === "navbar") {
-      x.className = "navbar-mobile";
-    } else {
-      x.className = "navbar";
-    }
-  }
-  const [isActive, setisActive] = useState(false);
   return (
     <header
       id="header"
@@ -56,7 +46,7 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <i onClick={() =>myFunction()} id="myTopnav" className="bi bi-list mobile-nav-toggle"></i>
+          <i className="bi bi-list mobile-nav-toggle"></i>
         </nav>
       </div>
     </header>

@@ -7,9 +7,9 @@ const SetGoal = () => {
   // const data= basket.size()-1;
   // console.log(data);
   
-  const [val, setVal] = useState(0);
+  const [val, setVal] = useState('');
   const data = [6,12,24,36];
-  let a=0;
+  const a=0;
 
   function setValue(e) {
     a=e.target.value;
@@ -39,7 +39,7 @@ const SetGoal = () => {
                   Product of 75% :<input type="text" class="form-control" id="inputEmail4" defaultValue={((product.price) * 75) / 100} readOnly />
                 </div>
                 <div class="col-md-6 mt-2 mb-2">
-                  Instalment Per Month :<input type="text" class="form-control" id="inputEmail4" value={(((product.price) * 75) / 100)/val} readOnly />
+                  Instalment Per Month :<input type="text" class="form-control" id="inputEmail4" defaultValue={a} readOnly />
                 </div>
 
 
@@ -71,6 +71,8 @@ const SetGoal = () => {
             </div>
           </div>
         ))}
+
+
     </div>
   )
 }
