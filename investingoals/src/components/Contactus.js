@@ -30,7 +30,37 @@ function Contactus() {
       <div className="container">
         <div className="row">
           
-          <div className="col-4 order-md-2 order-sm-2 order-none-2">
+
+          <div className="col order-md-1">
+              {/* <!-- ======= Form Section ======= --> */}
+            <div className="container box" data-aos="fade-up">
+
+              <form id="enterinfo" className="row form-control-lg">
+                <div className="col-12 mt-3 mb-2">
+                  <input type="text" className="form-control" id="inputAddress" placeholder="Your Name" />
+                </div>
+                <div className="col-md-6 mt-2 mb-2">
+
+                  <input type="email" className="form-control" id="inputEmail4" placeholder=" Your E-mail" />
+                </div>
+                <div className="col-md-6 mt-2 mb-2">
+
+                  <input type="password" className="form-control" id="inputPassword4"
+                    placeholder="Your Mobile" />
+                </div>
+                <div className=" col-12 mt-2 mb-2 ">
+                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+                  {/* <label for="floatingTextarea">Comments</label> */}
+                </div>
+                <div className="col-12 mt-2 mb-2">
+                  <button type="submit" className="btn btn-outline-light"><b>Send Message </b></button>
+                </div>
+              </form>
+            </div>
+
+          </div>
+
+          <div className="col col-lg-4 order-md-2">
            {/* <!-- ======= Contact Details Section ======= --> */}
             <div className="container box" data-aos="fade-up">
               <p className="social">
@@ -76,35 +106,6 @@ function Contactus() {
 
                 </div>
               </p>
-            </div>
-
-          </div>
-
-          <div className="col order-md-1 order-sm-1 order-none-1">
-              {/* <!-- ======= Form Section ======= --> */}
-            <div className="container box" data-aos="fade-up">
-
-              <form id="enterinfo" className="row form-control-lg">
-                <div className="col-12 mt-3 mb-2">
-                  <input type="text" className="form-control" id="inputAddress" placeholder="Your Name" />
-                </div>
-                <div className="col-md-6 mt-2 mb-2">
-
-                  <input type="email" className="form-control" id="inputEmail4" placeholder=" Your E-mail" />
-                </div>
-                <div className="col-md-6 mt-2 mb-2">
-
-                  <input type="password" className="form-control" id="inputPassword4"
-                    placeholder="Your Mobile" />
-                </div>
-                <div className=" col-12 mt-2 mb-2 ">
-                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                  {/* <label for="floatingTextarea">Comments</label> */}
-                </div>
-                <div className="col-12 mt-2 mb-2">
-                  <button type="submit" className="btn btn-outline-light"><b>Send Message </b></button>
-                </div>
-              </form>
             </div>
 
           </div>

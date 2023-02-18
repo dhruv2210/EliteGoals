@@ -723,12 +723,12 @@ section {
 .hero-section,
 .hero-section>.container>.row {
   height: 100vh;
-  min-height: 600px;
+  /* min-height: 600px; */
 }
 
 .hero-section.inner-page {
   height: 35vh;
-  min-height: 0;
+  /* min-height: 0; */
 }
 
 .hero-section.inner-page .hero-text {
