@@ -44,6 +44,9 @@ function AboutUs() {
                   <h1 data-aos="fade-up" data-aos-delay="0">
                     About Us
                   </h1>
+                  <p className="mb-5" data-aos="fade-up" data-aos-delay="100">
+                    INVEST IN YOUR GOALS !
+                  </p>
                 </div>
               </div>
             </div>
@@ -67,10 +70,10 @@ function AboutUs() {
 
       <div className="parentpara">
       <p className="social">
-            <a href="#"><span className="bi bi-twitter"></span></a>   &nbsp;
-            <a href="#"><span className="bi bi-facebook"></span></a>  &nbsp;
-            <a href="#"><span className="bi bi-instagram"></span></a> &nbsp;
-            <a href="#"><span className="bi bi-linkedin"></span></a>
+            <a href="/"><span className="bi bi-twitter"></span></a>   &nbsp;
+            <a href="/"><span className="bi bi-facebook"></span></a>  &nbsp;
+            <a href="/"><span className="bi bi-instagram"></span></a> &nbsp;
+            <a href="/"><span className="bi bi-linkedin"></span></a>
       </p>
       </div>
       </div>

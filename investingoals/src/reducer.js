@@ -1,5 +1,6 @@
 export const initialState = {
     basket: [],
+    goal:[],
     user: null,
     // user: JSON.parse(localStorage.getItem("user")),
     // address: {},
@@ -17,6 +18,12 @@ export const initialState = {
           ...state,
           basket: [action.item],
         };
+        case "ADD_TO_GOAL":
+          return {
+            ...state,
+            goal: [...state.goal, action.item],
+          };
+
       // case "REMOVE_FROM_BASKET":
       //   const index = state.basket.findIndex(
       //     (basketItem) => basketItem.id === action.id
@@ -54,6 +61,8 @@ export const initialState = {
       //     ...state,
       //     basket: [],
       //   };
+
+
       default:
         return state;
     }

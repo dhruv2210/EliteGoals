@@ -1,15 +1,74 @@
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import "./ContactUs.css";
 
-
-
-
 function Contactus() {
+
+  const [userData, setUserData] = useState({fname:"", email:"", phone:"", message:""});
+
+  const callProfilePage = async () => {
+    try {
+      const res = await fetch('/getdata', {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        },
+        credentials: "include"
+      });
+
+      const data = await res.json();
+      console.log(data);
+      setUserData({...userData, fname:userData.fname, email:userData.email, phone:userData.phone, message:userData.message});
+
+      if (!res.status === 200) {
+        const error = new Error(res.error);
+        throw error;
+      }
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    callProfilePage();
+  }, []);
+
+  const handleInputs=(e)=>{
+    const name=e.target.name;
+    const value=e.target.value;
+
+    setUserData({...userData, [name]:value});
+  }
+
+  const contactForm = async (e) => {
+    e.preventDefault();
+    const { fname, email, phone, message } = userData;
+    const res = await fetch("/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        fname, email, phone,message
+      })
+    });
+
+    const data = await res.json();
+
+    if (!data) {   
+      console.log("Contact form NOTT sent");
+    } else { 
+      alert("Message Sent") 
+      console.log("Contact form sent");
+      setUserData({...userData, message:""})
+    }
+  }
+
   return (
     <>
       {/* <!-- ======= Get in touch Section ======= --> */}
       <section className="hero-section inner-page">
-
 
         <div className="container">
           <div className="row align-items-center">
@@ -25,48 +84,15 @@ function Contactus() {
           </div>
         </div>
       </section>
-      {/* <!-- ======= Get in touch Section ======= --> */}
 
       <div className="container">
         <div className="row">
-          
 
-          <div className="col order-md-1">
-              {/* <!-- ======= Form Section ======= --> */}
-            <div className="container box" data-aos="fade-up">
-
-              <form id="enterinfo" className="row form-control-lg">
-                <div className="col-12 mt-3 mb-2">
-                  <input type="text" className="form-control" id="inputAddress" placeholder="Your Name" />
-                </div>
-                <div className="col-md-6 mt-2 mb-2">
-
-                  <input type="email" className="form-control" id="inputEmail4" placeholder=" Your E-mail" />
-                </div>
-                <div className="col-md-6 mt-2 mb-2">
-
-                  <input type="password" className="form-control" id="inputPassword4"
-                    placeholder="Your Mobile" />
-                </div>
-                <div className=" col-12 mt-2 mb-2 ">
-                  <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-                  {/* <label for="floatingTextarea">Comments</label> */}
-                </div>
-                <div className="col-12 mt-2 mb-2">
-                  <button type="submit" className="btn btn-outline-light"><b>Send Message </b></button>
-                </div>
-              </form>
-            </div>
-
-          </div>
-
-          <div className="col col-lg-4 order-md-2">
-           {/* <!-- ======= Contact Details Section ======= --> */}
+          <div className="col-4 order-md-2 order-sm-2 order-none-2">
             <div className="container box" data-aos="fade-up">
               <p className="social">
-                {/* <a href="#"><span className="bi bi-twitter"></span></a>
-            <a href="#"><span className="bi bi-facebook"></span></a> */}
                 <div className="symbol first">
+
                   <table>
                     <tr>
                       <td><a href="#"><span className="bi bi-envelope"></span></a></td>
@@ -106,6 +132,43 @@ function Contactus() {
 
                 </div>
               </p>
+            </div>
+
+          </div>
+          <div className="col order-md-1 order-sm-1 order-xs-1">
+
+            {/* <!-- ======= Contact Details Section ======= --> */}
+            <div className="container box" data-aos="fade-up">
+
+              <form id="enterinfo" class="row form-control-lg" method="POST">
+                <div class="col-12 mt-3 mb-2">
+                  <input type="text" class="form-control"  value={userData.fname} name="fname"
+                  onChange={handleInputs}
+                   placeholder="Your Name" />
+                </div>
+                <div class="col-md-6 mt-2 mb-2">
+
+                  <input type="email" class="form-control"  value={userData.email} name="email"
+                  onChange={handleInputs}
+                   placeholder=" Your E-mail" />
+                </div>
+                <div class="col-md-6 mt-2 mb-2">
+
+                  <input type="text" class="form-control"  defaultValue={userData.phone}  name="phone"
+                  onChange={handleInputs}
+
+                    placeholder="Your Mobile" />
+                </div>
+                <div class=" col-12 mt-2 mb-2 ">
+                  <textarea class="form-control"  name="message"
+                  onChange={handleInputs}
+                   placeholder="Leave a comment here"></textarea>
+                  {/* <label for="floatingTextarea">Comments</label> */}
+                </div>
+                <div class="col-12 mt-2 mb-2">
+                  <button type="submit" className="btn btn-outline-light" onClick={contactForm}><b>Send Message </b></button>
+                </div>
+              </form>
             </div>
 
           </div>
@@ -162,8 +225,8 @@ function Contactus() {
                       </p>
                     </div>
                   </div>
-                  {/* <!-- End testimonial item --> */}
-
+              
+              
                   <div className="swiper-slide">
                     <div className="review text-center">
                       <p className="stars">
@@ -180,7 +243,7 @@ function Contactus() {
                           elit. Eius ea delectus pariatur, numquam aperiam
                           dolore nam optio dolorem facilis itaque voluptatum
                           recusandae deleniti minus animi, provident voluptates
-                          consectetur maiores quos.
+                          consectetur maiores quos.  
                         </p>
                       </blockquote>
 

@@ -63,14 +63,12 @@ function Footer() {
           </div>
         </div>
       </div>
-      
-      <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
       <div className="row justify-content-center text-center">
         <div className="col-md-7">
-          <p className="copyright">&copy; Copyright EliteGoals. All Rights Reserved</p>
+          <p className="copyright">&copy; Copyright Invest In Goals. All Rights Reserved</p>
           <div className="credits">
-            Designed by Dhruv, Dev & Ayush 
+            Designed by Ayush , Dhruv & Dev.
           </div>
         </div>
       </div>
