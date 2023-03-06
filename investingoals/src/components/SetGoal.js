@@ -1,39 +1,35 @@
 import React, { useState } from 'react';
 import { useStateValue } from '../StateProvider';
 import { useNavigate } from 'react-router-dom';
+// import { set } from 'mongoose';
 
 
 const SetGoal = () => {
   const [{ basket }, dispatch] = useStateValue();
-  console.log('goal list>>>', basket);
+  console.log('setgoal >>>', basket);
   const history = useNavigate();
-  // const data= basket.size()-1;
+
   console.log("heyyyyyyyy---",basket[0].title);
   console.log("miaauuuuuuuuuu-----",basket[0].price);
   const [mp, setmp] = useState(0);
   const [val, setVal] = useState(0);
   let a = 0;
-// let mp;
-let bs=((basket[0].price) * 75) / 100;
+
+  let bs=((basket[0].price) * 75) / 100;
 
   function setValue(e) {
     a = e.target.value;
     setVal(e.target.value);
     console.log(a);
     setmp( bs / a);
+    // setUserData({...userData,monthlyprice:mp});
   }
 
   console.log("My div",mp);
-  let mm=mp;
-
-  // let y=9;
-  // y=y+9;
-  // let m=y;
-  // console.log("ayu",mm);
-  // console.log(basket[0].price);
+  let mm=mp+0;
 
  
-  const [userData, setUserData] = useState({ title:basket[0].title, price: basket[0].price, price75: bs, monthlyprice: mm});
+  const [userData, setUserData] = useState({ title:basket[0].title, price: basket[0].price, price75: bs, monthlyprice: mp});
   console.log("ayu",mm);
 
   const data = [6, 12, 24, 36];
@@ -86,14 +82,14 @@ let bs=((basket[0].price) * 75) / 100;
                     <button type="submit" className="btn btn-outline-light" onClick={async (e) => {
                       e.preventDefault();
 
-                      const { title, price, price75, monthlyprice } = userData;
+                      const { title, price, price75, monthlyprice, } = userData;
                       const res = await fetch("/goal", {
                         method: "POST",
                         headers: {
                           "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                          title:product.title, price, price75, monthlyprice
+                          title, price, price75, monthlyprice,
                         })
                       });
 
@@ -110,6 +106,7 @@ let bs=((basket[0].price) * 75) / 100;
                       dispatch({
                         type: 'ADD_TO_GOAL',
                         item: {
+                          id:product.id,
                           title: product.title,
                           imgURL: basket[0].imgURL,
                           price: product.price,

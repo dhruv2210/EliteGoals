@@ -50,6 +50,7 @@ function Home() {
                   dispatch({
                     type: 'ADD_TO_BASKET',
                     item: {
+                      id:product._id,
                       title: product.title,
                       imgURL: product.imageURL,
                       price: product.price

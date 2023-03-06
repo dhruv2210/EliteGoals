@@ -55,9 +55,9 @@ const CustomerRegistrationSchema = new mongoose.Schema({
                 required: true
             },
             monthlyprice: {
-                type: Number,
+                type: String,
                 required: true
-            },
+            }
         }
     ],
 
@@ -128,7 +128,8 @@ CustomerRegistrationSchema.methods.addGoal = async function (title, price, price
         this.goals = this.goals.concat({title, price, price75, monthlyprice});
        await this.save();
         return this.goals;
-    } catch (error) {
+    } 
+    catch (error) {
         console.log(error);
     }
 }

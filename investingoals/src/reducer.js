@@ -23,26 +23,26 @@ export const initialState = {
             ...state,
             goal: [...state.goal, action.item],
           };
-
-      // case "REMOVE_FROM_BASKET":
-      //   const index = state.basket.findIndex(
-      //     (basketItem) => basketItem.id === action.id
-      //   );
+      
+      case "REMOVE_FROM_GOAL":
+        const index = state.goal.findIndex(
+          (basketItem) => basketItem.id === action.id
+        );
   
-      //   let newBasket = [...state.basket];
+        let newBasket = [...state.goal];
 
-      //   if (index >= 0) {
-      //     newBasket.splice(index, 1);
-      //   } else {
-      //     console.warn(`
-      //       can't remove product whose id is ${index}
-      //       `);
-      //   }
+        if (index >= 0) {
+          newBasket.splice(index, 1);
+        } else {
+          console.warn(`
+            can't remove product whose id is ${index}
+            `);
+        }
   
-      //   return {
-      //     ...state,
-      //     basket: newBasket,
-      //   };
+        return {
+          ...state,
+          goal: newBasket,
+        };
   
       // case "SET_ADDRESS":
       //   return {

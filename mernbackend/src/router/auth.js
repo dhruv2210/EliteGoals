@@ -112,10 +112,7 @@ router.get("/profile", authenticate, (req, res) => {
   res.send(req.rootUser);
 });
 
-router.get('/getdata', authenticate, (req, res) => {
-  console.log("==========Contact us==================")
-  res.send(req.rootUser);
-});
+
 
 router.post('/contact', authenticate, async (req, res) => {
   // let userMessage;
@@ -144,6 +141,7 @@ router.post('/contact', authenticate, async (req, res) => {
 router.post('/goal', authenticate, async (req, res) => {
 
   try {
+    // console.log("inside---------------",monthlyprice);
     const { title, price, price75, monthlyprice } = req.body;
 
     // if (!title || !price || !price75 || !monthlyprice) {

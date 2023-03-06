@@ -5,44 +5,12 @@ import { UserContext } from "../App";
 
 // let userData=[];
 const Profile = () => {
-  const { state, dispatch } = useContext(UserContext);
+  const { dispatch } = useContext(UserContext);
   const history = useNavigate();
   const [userData, setUserData] = useState([]);
-  // const callProfilePage = async () => {
-  //   try {
-  //     const res = await fetch('/profile', {
-  //       method: "GET",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json"
-  //       },  
-  //       credentials: "include"
-  //     });
-
-
-  //     const data = await res.json();
-  //     console.log(data);
-  //     setUserData(data);
-
-
-  //     if (!res.status === 200) {
-  //       const error = new Error(res.error);
-  //       throw error;
-  //     }
-
-  //   } catch (error) {
-  //     console.log(error);
-  //     history('/Login');
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   callProfilePage();
-  // }, []);
 
 
   const logout = async () => {
-
     fetch('/logout', {
       method: "GET",
       headers: {
@@ -53,7 +21,7 @@ const Profile = () => {
     }).then((res) => {
       history('/login', { replace: true });
       dispatch({ type: "USER", payload: false })
-      if (res.status != 200) {
+      if (res.status !== 200) {
         const error = new Error(res.error);
         throw error;
       }
@@ -61,6 +29,7 @@ const Profile = () => {
       console.log(err);
     });
   }
+  
 
   useEffect(() => {
     const getUser = async () => {
@@ -71,6 +40,7 @@ const Profile = () => {
   }, []);
 
 
+  
   return (
     <>
       <br></br>
@@ -99,3 +69,26 @@ const Profile = () => {
 }
 
 export default Profile
+
+
+
+// const [userData,setUserData] = useState({
+//   title:"",
+//   price:0,
+//   price75:0,
+//   monthlyprice:0
+// })
+
+// const setValue = (e) => {
+//   setVal(e.target.value);
+// let bs=((basket[0].price) * 75) / 100;
+//   setmp(bs/mp);
+//   setUserData({monthlyprice:mp,title:basket[0].title, price:basket[0].price, price75:bs});
+//   console.log(userData);
+// }
+
+// const handleInputs = (e) => {
+//   const name = e.target.name;
+//   const value = e.target.value;
+//   setUserData({ ...userData, [name]: value });
+// }

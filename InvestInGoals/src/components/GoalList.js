@@ -4,19 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 
-
-
   // const [userData, setUserData] = useState({fname:"", email:"", phone:"", message:""});
-
-
 
 const GoalList = () => {
   const [{ goal },dispatch] = useStateValue();
-  console.log('goal list>>>', goal);
+  console.log('goallist>>>', goal);
   const history = useNavigate();
  
-  const [userData, setUserData] = useState();
-  const [goal1, setGoal] = useState("");
+  const [userData, setUserData] = useState("");
+  const [goal1, setGoal] = useState([]);
 
   const callProfilePage = async () => {
     try {
@@ -25,8 +21,7 @@ const GoalList = () => {
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json"
-        },
-        
+        },      
         credentials: "include"
       });
 
@@ -39,33 +34,74 @@ const GoalList = () => {
         const error = new Error(res.error);
         throw error;
       }
-
     } catch (error) {
       console.log(error);
       history('/Login');
     }
   }
 
-  const fetchdata = async () => {
-    const data = await axios.get("/getdata");
-    setGoal(data.goals[0]);
-    console.log(data);
-  };
-  
   useEffect(() => 
   {
-      callProfilePage();
-      fetchdata();
+    const fetchdata = async () => {
+      const data1 = await axios.get("/profile");
+      setGoal(data1.data.goals); 
+    };
+    fetchdata();    
   }, []);
+
+  console.log("this is your user------",goal1);
+  useEffect(() => 
+  {
+    callProfilePage(); 
+  }, []);
+
+
+ const removeFromGOal = (e,id)=>{
+    e.preventDefault();
+    dispatch({
+      type:"REMOVE_FROM_GOAL",
+      id:id,
+    })
+ }
+
 
   return (
     <div>
       <br></br>
       <br></br>
-      <br></br>
-    
+      <br></br> 
+ 
+      {
+        goal1.map((prod,i) => (
+        <span className="rowwise" key={i}>
+          <div className="col-md-12">
+            <div className="step">
+            <img id='goalsimg'
+                    src={prod.imageURL}
+                    alt="Image"
+                    className="img-fluid"
+                  />
+              <h3>{prod.title}</h3>
+
+              {/* <p>{product.desc}</p> */}
+              
+              <h4>{prod.price}/-</h4>
+              <h4>{prod.price}/-</h4>
+              <h4>{prod.month}</h4>
+              <h4>{prod.monthlyprice}/-</h4>
+          
+              <button type="submit" className="goalbutton btn btn-outline-light" > Payment </button>
+              <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
+              
+              <br/>     
+            </div>
+          </div>    
+        </span>
+
+   ))}
+
 {
-        goal?.map((prod,i) => (
+        goal?.map((prod,i) => (   
             <span className="rowwise" key={i}>
         <div className="col-md-12">
           <div className="step">
@@ -75,14 +111,15 @@ const GoalList = () => {
                   className="img-fluid"
                 />
             <h3>{prod.title}</h3>
-            {/* <p>{product.desc}</p> */}
-            
+            {/* <p>{product.desc}</p> */}        
             <h4>{prod.price}/-</h4>
             <h4>{prod.price}/-</h4>
             <h4>{prod.month}</h4>
             <h4>{prod.monthlyprice}/-</h4>
         
             <button type="submit" className="goalbutton btn btn-outline-light" > Payment </button>
+            <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod.id)} > Remove </button>
+            
             <br/>     
           </div>
         </div>    
