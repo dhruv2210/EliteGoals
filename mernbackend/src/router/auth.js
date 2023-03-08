@@ -129,7 +129,6 @@ router.post('/contact', authenticate, async (req, res) => {
     if (userContact) {
       const userMessage = await userContact.addMessage(fname, email, phone, message);
       res.status(201).json({ message: "user contact successfully" });
-
     }
 
   } catch (error) {
@@ -142,7 +141,7 @@ router.post('/goal', authenticate, async (req, res) => {
 
   try {
     // console.log("inside---------------",monthlyprice);
-    const { title, price, price75, monthlyprice } = req.body;
+    const { title, price, price75, monthlyprice, duration, imgURL } = req.body;
 
     // if (!title || !price || !price75 || !monthlyprice) {
     //   console.log("ERROR: goal")
@@ -152,7 +151,7 @@ router.post('/goal', authenticate, async (req, res) => {
     const userGoal = await Register.findOne({ _id: req.userID });
 
     if (userGoal) {
-      const usersettedGoal = await userGoal.addGoal(title, price, price75, monthlyprice);
+      const usersettedGoal = await userGoal.addGoal(title, price, price75, monthlyprice, duration, imgURL);
       res.status(201).json({ message: "user goal successfully added to mongodb" });
     }
   } catch (error) {
@@ -161,10 +160,10 @@ router.post('/goal', authenticate, async (req, res) => {
 });
 
 router.get("/logout", (req, res) => {
-      console.log("Heloo logout ***********");
-      // res.cookie.remove('jwtoken',{ path: '/login' })
-      res.clearCookie('jwtoken', { path: '/login' });
-      res.status(200).send('User Logout');
+  console.log("Heloo logout ***********");
+  // res.cookie.remove('jwtoken',{ path: '/login' })
+  res.clearCookie('jwtoken', { path: '/login' });
+  res.status(200).send('User Logout');
 });
 
 

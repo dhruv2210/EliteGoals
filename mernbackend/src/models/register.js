@@ -40,7 +40,7 @@ const CustomerRegistrationSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    goals:[
+    goals: [
         {
             title: {
                 type: String,
@@ -55,6 +55,14 @@ const CustomerRegistrationSchema = new mongoose.Schema({
                 required: true
             },
             monthlyprice: {
+                type: Number,
+                required: true
+            },
+            duration: {
+                type: Number,
+                required: true
+            },
+            imgURL: {
                 type: String,
                 required: true
             }
@@ -115,20 +123,20 @@ CustomerRegistrationSchema.methods.generateAuthToken = async function () {
 CustomerRegistrationSchema.methods.addMessage = async function (fname, email, phone, message) {
     try {
         this.messages = this.messages.concat({ fname, email, phone, message });
-       await this.save();
+        await this.save();
         return this.messages;
     } catch (error) {
         console.log(error);
     }
 }
 
-CustomerRegistrationSchema.methods.addGoal = async function (title, price, price75, monthlyprice) {
+CustomerRegistrationSchema.methods.addGoal = async function (title, price, price75, monthlyprice, duration,imgURL) {
     try {
-        console.log("inside---------------",monthlyprice);
-        this.goals = this.goals.concat({title, price, price75, monthlyprice});
-       await this.save();
+        console.log("inside---------------", monthlyprice);
+        this.goals = this.goals.concat({ title, price, price75, monthlyprice, duration,imgURL });
+        await this.save();
         return this.goals;
-    } 
+    }
     catch (error) {
         console.log(error);
     }

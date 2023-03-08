@@ -11,26 +11,26 @@ const SetGoal = () => {
 
   console.log("heyyyyyyyy---",basket[0].title);
   console.log("miaauuuuuuuuuu-----",basket[0].price);
-  const [mp, setmp] = useState(0);
   const [val, setVal] = useState(0);
+  const [mp, setmp] = useState(0);
+  const [userData, setUserData] = useState({});
   let a = 0;
+  console.log("66666",basket[0].imgURL);
 
   let bs=((basket[0].price) * 75) / 100;
-
+  
   function setValue(e) {
     a = e.target.value;
     setVal(e.target.value);
     console.log(a);
-    setmp( bs / a);
-    // setUserData({...userData,monthlyprice:mp});
+    let mp=bs/a;
+    setUserData({title:basket[0].title, price: basket[0].price, price75: bs, monthlyprice: mp,duration:a,imgURL:basket[0].imgURL});
   }
 
-  console.log("My div",mp);
-  let mm=mp+0;
+  // console.log("My div",mp);
+  // let mm=mp+0;
 
- 
-  const [userData, setUserData] = useState({ title:basket[0].title, price: basket[0].price, price75: bs, monthlyprice: mp});
-  console.log("ayu",mm);
+  // console.log("ayu",mm);
 
   const data = [6, 12, 24, 36];
   
@@ -82,14 +82,14 @@ const SetGoal = () => {
                     <button type="submit" className="btn btn-outline-light" onClick={async (e) => {
                       e.preventDefault();
 
-                      const { title, price, price75, monthlyprice, } = userData;
+                      const { title, price, price75, monthlyprice,duration,imgURL} = userData;
                       const res = await fetch("/goal", {
                         method: "POST",
                         headers: {
                           "Content-Type": "application/json"
                         },
                         body: JSON.stringify({
-                          title, price, price75, monthlyprice,
+                          title, price, price75, monthlyprice,duration,imgURL
                         })
                       });
 
@@ -111,7 +111,7 @@ const SetGoal = () => {
                           imgURL: basket[0].imgURL,
                           price: product.price,
                           price75:bs,
-                          monthlyprice:mm,
+                          monthlyprice:mp,
                           month:val
                         }
                       })

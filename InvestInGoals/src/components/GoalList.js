@@ -25,7 +25,6 @@ const GoalList = () => {
         credentials: "include"
       });
 
-
       const data = await res.json();
       console.log(data);
       setUserData(data);
@@ -55,7 +54,6 @@ const GoalList = () => {
     callProfilePage(); 
   }, []);
 
-
  const removeFromGOal = (e,id)=>{
     e.preventDefault();
     dispatch({
@@ -63,7 +61,6 @@ const GoalList = () => {
       id:id,
     })
  }
-
 
   return (
     <div>
@@ -77,17 +74,15 @@ const GoalList = () => {
           <div className="col-md-12">
             <div className="step">
             <img id='goalsimg'
-                    src={prod.imageURL}
+                    src={prod.imgURL}
                     alt="Image"
                     className="img-fluid"
                   />
-              <h3>{prod.title}</h3>
-
-              {/* <p>{product.desc}</p> */}
-              
+              <h3>{prod.title}</h3>             
               <h4>{prod.price}/-</h4>
-              <h4>{prod.price}/-</h4>
+              <h4>{prod.price75}/-</h4>
               <h4>{prod.month}</h4>
+              <h4>{prod.duration}</h4>
               <h4>{prod.monthlyprice}/-</h4>
           
               <button type="submit" className="goalbutton btn btn-outline-light" > Payment </button>
@@ -100,31 +95,6 @@ const GoalList = () => {
 
    ))}
 
-{
-        goal?.map((prod,i) => (   
-            <span className="rowwise" key={i}>
-        <div className="col-md-12">
-          <div className="step">
-          <img id='goalsimg'
-                  src={prod.imageURL}
-                  alt="Image"
-                  className="img-fluid"
-                />
-            <h3>{prod.title}</h3>
-            {/* <p>{product.desc}</p> */}        
-            <h4>{prod.price}/-</h4>
-            <h4>{prod.price}/-</h4>
-            <h4>{prod.month}</h4>
-            <h4>{prod.monthlyprice}/-</h4>
-        
-            <button type="submit" className="goalbutton btn btn-outline-light" > Payment </button>
-            <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod.id)} > Remove </button>
-            
-            <br/>     
-          </div>
-        </div>    
-  </span>
-        ))}
     </div>
   )
 }

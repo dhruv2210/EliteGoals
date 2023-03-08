@@ -17,25 +17,6 @@
 
 }
 
-/* .instragram-container i {
-    color: #fff;
-    font-size: 1.3rem;
-}
-
-.instragram-container {
-    color: #fff;
-    display: inline-block;
-    padding-top: 3px;
-    text-align: center;
-    border-radius: 40px;
-    /* font-size: 220px; */
-    /* line-height: 250px; */
-    /* vertical-align: middle;
-    background: #d6249f;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-} */ 
-
-
 
 .a{
     font-family: Arial, Helvetica, sans-serif;
@@ -64,9 +45,6 @@ form#contactUs
 label{
     margin: 5px;
 }
-/* input{
-    margin: 5px;
-} */
 
 
 
