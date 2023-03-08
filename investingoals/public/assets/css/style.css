@@ -171,6 +171,12 @@ section {
   color: #b1b1b1;
 }
 
+.steps {
+  box-shadow:0 15px 19px 12px rgb(0 0 0 / 5%);
+  background: #fff;
+  margin: 40px 120px;
+  padding-left: 40px;
+}
 /* Step */
 .step {
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);

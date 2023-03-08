@@ -2,10 +2,11 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { UserContext } from "../App";
-// import "./profile.css";
+import "./profile.css";
 
 // let userData=[];
 const Profile = () => {
+
   const { dispatch } = useContext(UserContext);
   const history = useNavigate();
   const [userData, setUserData] = useState([]);
@@ -51,25 +52,26 @@ const Profile = () => {
       <div>
         <span className="rowwise">
           <div className="col-md-12" >
-            <div className="step">
+            <div className="steps">
 
               <form id="enterinfo" className="row form-control-lg">
                 <div className="col-12 mt-3 mb-2">
-                  <h3>Name:  {userData.fname}  {userData.lname}</h3>
+                  <h3><b>Name: </b>{"\u00a0\u00a0\u00a0\u00a0"}{userData.fname}  {userData.lname}</h3>
                 </div>
 
                 <div className="col-md-6 mt-2 mb-2">
-                  <h3>Email: {userData.email}</h3>
+                  <h3><b>Email: </b>{"\u00a0\u00a0\u00a0\u00a0\u00a0"}{userData.email}</h3>
                 </div>
                 <div className="col-md-6 mt-2 mb-2">
-                  <h3>DOB: {userData.dob[8]}{userData.dob[9]}/{userData.dob[5]}{userData.dob[6]}/{userData.dob[0]}{userData.dob[1]}{userData.dob[2]}{userData.dob[3]}   </h3>
+                  <h3><b>Date Of Birth: </b>{"\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"}{userData.dob}   </h3>
+                  
                 </div>
 
                 <div className="col-md-6 mt-2 mb-2">
-                  <h3>Phone: {userData.phone}</h3>
+                  <h3><b>Phone: </b>{"\u00a0\u00a0\u00a0"}{userData.phone}</h3>
                 </div>
                 <div className="col-md-6 mt-2 mb-2">
-                  <h3>Aadhar Number: {userData.aadharNumber}</h3>
+                  <h3><b>Aadhar Number: </b>{"\u00a0\u00a0\u00a0\u00a0"}{userData.aadharNumber}</h3>
                 </div>
 
 
