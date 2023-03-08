@@ -65,7 +65,32 @@ const CustomerRegistrationSchema = new mongoose.Schema({
             imgURL: {
                 type: String,
                 required: true
-            }
+            },
+            payment: [
+                {
+                    payment_count: {
+                        type: Number,
+                        required: false
+                    },
+                    payment_id: {
+                        type: String,
+                        required: false
+                    },
+                    monthlypricee: {
+                        type: Number,
+                        required: false
+                    },
+                    duration: {
+                        type: Number,
+                        required: false
+                    },
+                    date: {
+                        type: Date,
+                        required: false
+                    }
+                }
+            ]
+           
         }
     ],
 
@@ -130,12 +155,23 @@ CustomerRegistrationSchema.methods.addMessage = async function (fname, email, ph
     }
 }
 
-CustomerRegistrationSchema.methods.addGoal = async function (title, price, price75, monthlyprice, duration,imgURL) {
+CustomerRegistrationSchema.methods.addGoal = async function (title, price, price75, monthlyprice, duration, imgURL) {
     try {
         console.log("inside---------------", monthlyprice);
-        this.goals = this.goals.concat({ title, price, price75, monthlyprice, duration,imgURL });
+        this.goals = this.goals.concat({ title, price, price75, monthlyprice, duration, imgURL });
         await this.save();
         return this.goals;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
+CustomerRegistrationSchema.methods.addPayment = async function ( payment_count,payment_id,monthlypricee,duration,date) {
+    try {
+        this.goals.payment = this.goals.payment.concat({ payment_count,payment_id,monthlypricee,duration,date });
+        await this.goals.save();
+        return this.goals.payment;
     }
     catch (error) {
         console.log(error);

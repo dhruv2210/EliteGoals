@@ -88,7 +88,7 @@ router.post('/login', async (req, res) => {
 
 
       res.cookie("jwtoken", token, {
-        expires: new Date(Date.now() + 25892000000),
+        expires: new Date(Date.now() + 258920000000000),
         htttpOnly: true,
       });
 
@@ -162,6 +162,24 @@ router.get("/logout", (req, res) => {
   // res.cookie.remove('jwtoken',{ path: '/login' })
   res.clearCookie('jwtoken', { path: '/login' });
   res.status(200).send('User Logout');
+});
+
+
+router.post('/payment', authenticate, async (req, res) => {
+
+  try {
+   
+    const {  payment_count,payment_id,monthlypricee,duration,date } = req.body;
+    
+    const userPay = await Register.findOne({ _id: req.userID });
+
+    if (userPay) {
+      const usersettedPayment = await userPay.addPayment( payment_count,payment_id,monthlypricee,duration,date);
+      res.status(201).json({ message: "user payment successfully added to mongodb" });
+    }
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = router;

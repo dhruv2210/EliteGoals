@@ -2,11 +2,9 @@ import React, { useState ,useEffect} from 'react';
 import { useStateValue } from '../StateProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
-
-
-
-  // const [userData, setUserData] = useState({fname:"", email:"", phone:"", message:""});
   
+let flag=false;
+let payment_count=0;
 
 const GoalList = () => {
   const [{ goal },dispatch] = useStateValue();
@@ -40,20 +38,6 @@ const GoalList = () => {
       history('/Login');
     }
   }
-
-  // const setMonthlyPrice = async (e) => {
-  //   e.preventDefault();
-  //   const res = await fetch("/razorpay", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       // monthlyprice
-  //     })
-  //   });
-
-// ---------------------
   useEffect(() => 
   {
     const fetchdata = async () => {
@@ -126,6 +110,7 @@ const __DEV__ = document.domain === 'localhost'
      return
    }
    const  monthlypricee = prod.monthlyprice;
+   const  duration = prod.duration;
    console.log("+++++++++++",monthlypricee);
    const data = await fetch('http://localhost:5000/razorpay', 
    { method: 'POST',
@@ -152,6 +137,22 @@ const __DEV__ = document.domain === 'localhost'
        alert(response.razorpay_payment_id)
        alert(response.razorpay_order_id)
        alert(response.razorpay_signature)
+       const payment_id=response.razorpay_payment_id
+       flag=true 
+       payment_count++
+       alert(payment_count)
+       const date=new Date(Date.now())
+       alert(date)
+       const data =  fetch('/payment', 
+          { method: 'POST',
+            headers: {
+                    "Content-Type": "application/json"
+                  },
+            body: JSON.stringify({
+                  payment_count,payment_id,monthlypricee,duration,date
+            })}).then((t) =>
+            t.json()
+          )
      },
      prefill: {
        name,
@@ -161,19 +162,15 @@ const __DEV__ = document.domain === 'localhost'
    }
    const paymentObject = new window.Razorpay(options)
    paymentObject.open()
- }
-      
-}
-              > Payment </button>
+
+ }}> Payment </button>
               <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
               <br/>     
             </div>
           </div>    
         </span>
-
    ))}
-
-    </div>
+   </div>
   )
 }
 
