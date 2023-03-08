@@ -66,9 +66,9 @@ function Footer() {
 
       <div className="row justify-content-center text-center">
         <div className="col-md-7">
-          <p className="copyright">&copy; Copyright EliteGoals. All Rights Reserved</p>
+          <p className="copyright">&copy; Copyright Invest In Goals. All Rights Reserved</p>
           <div className="credits">
-            Designed by Dhruv, Dev & Ayush 
+            Designed by Ayush , Dhruv & Dev.
           </div>
         </div>
       </div>

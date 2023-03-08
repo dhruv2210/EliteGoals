@@ -1,9 +1,12 @@
-import { React, useState } from "react";
+import { React, useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import "./login.css";
+import { UserContext } from "../App";
 
 
 const Login = () => {
+
+  const { state, dispatch } = useContext(UserContext);
 
   const history = useNavigate();
 
@@ -28,8 +31,9 @@ const Login = () => {
     if (res.status === 400 || !data) {
       window.alert("invalid credentials");
     } else {
+      dispatch({ type: "USER", payload: true })
       window.alert("login successfull");
-      history("/");
+      history("/Profile");
     }
 
   }
@@ -37,9 +41,8 @@ const Login = () => {
   return (
 
     <div>
- <section className="hero-section inner-page">
-        
-       
+      <section className="hero-section inner-page">
+
         <div className="container">
           <div className="row align-items-center">
             <div className="col-12">
@@ -54,14 +57,14 @@ const Login = () => {
           </div>
         </div>
       </section>
-      
+
       <div className="main">
         <div className="container box col-6" data-aos="fade-up">
 
           <form id="enterinfo" className="row form-control-lg">
             <div className="col-12 mt-3 mb-2">
               <input className="form-control"
-                type="tel" 
+                type="tel"
                 name="phone"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}

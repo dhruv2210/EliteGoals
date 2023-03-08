@@ -3737,7 +3737,7 @@ const Default$3 = {
   sanitize: true,
   sanitizeFn: null,
   selector: false,
-  template: '<div className="tooltip" role="tooltip">' + '<div className="tooltip-arrow"></div>' + '<div className="tooltip-inner"></div>' + '</div>',
+  template: '<div class="tooltip" role="tooltip">' + '<div class="tooltip-arrow"></div>' + '<div class="tooltip-inner"></div>' + '</div>',
   title: '',
   trigger: 'hover focus'
 };
@@ -4307,7 +4307,7 @@ const Default$2 = { ...Tooltip.Default,
   content: '',
   offset: [0, 8],
   placement: 'right',
-  template: '<div className="popover" role="tooltip">' + '<div className="popover-arrow"></div>' + '<h3 className="popover-header"></h3>' + '<div className="popover-body"></div>' + '</div>',
+  template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div>' + '</div>',
   trigger: 'click'
 };
 const DefaultType$2 = { ...Tooltip.DefaultType,

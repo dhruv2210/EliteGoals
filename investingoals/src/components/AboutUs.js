@@ -70,10 +70,10 @@ function AboutUs() {
 
       <div className="parentpara">
       <p className="social">
-            <a href="#"><span className="bi bi-twitter"></span></a>   &nbsp;
-            <a href="#"><span className="bi bi-facebook"></span></a>  &nbsp;
-            <a href="#"><span className="bi bi-instagram"></span></a> &nbsp;
-            <a href="#"><span className="bi bi-linkedin"></span></a>
+            <a href="/"><span className="bi bi-twitter"></span></a>   &nbsp;
+            <a href="/"><span className="bi bi-facebook"></span></a>  &nbsp;
+            <a href="/"><span className="bi bi-instagram"></span></a> &nbsp;
+            <a href="/"><span className="bi bi-linkedin"></span></a>
       </p>
       </div>
       </div>

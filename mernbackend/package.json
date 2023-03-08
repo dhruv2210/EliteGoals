@@ -19,6 +19,9 @@
     "hbs": "^4.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.1",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "razorpay": "^2.8.6",
+    "react-jwt": "^1.1.8",
+    "shortid": "^2.2.16"
   }
 }

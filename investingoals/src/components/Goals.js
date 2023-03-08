@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import Rating from "@material-ui/lab/Rating"
+import Rating from "@material-ui/lab/Rating";
 // import Products from '../../../mernbackend/src/models/Products';
 import Card from "./Card";
 import { useStateValue } from "../StateProvider";
 // import Navbar from "./Navbar";
 import { useNavigate } from 'react-router-dom';
 import "./Goals.css";
+
 
 function Home() {
   const history = useNavigate();
@@ -20,21 +21,16 @@ function Home() {
     };
     fetchdata();
   }, []);
-
   const [{ basket }, dispatch] = useStateValue();
-
-
-
-  console.log('basket>>>>', basket);
+  //console.log('goal>>>>', basket.length);
 
   return (
     
     products &&
-    products?.data.map((product) => (
-     <span className="rowwise">
-    
+    products?.data.map((product,i) => (
+     <span className="rowwise" key={i}>
         
-            <div className="col-md-12">
+            <div className="col-md-12" >
               <div className="step">
                 <img id='goalsimg'
                   src={product.imageURL}
@@ -54,6 +50,7 @@ function Home() {
                   dispatch({
                     type: 'ADD_TO_BASKET',
                     item: {
+                      id:product._id,
                       title: product.title,
                       imgURL: product.imageURL,
                       price: product.price
@@ -62,38 +59,13 @@ function Home() {
                   history("/SetGoal");
                 }}>Add to Goal </button>
               </div>
-            </div>
-          
-      
-        
+            </div>    
      
       </span>
     
     ))
-
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // function Home() {
@@ -161,7 +133,7 @@ function Home() {
 
 //       &:nth-child(2) {
 //         display: block;
-//         -webkit-mask-image: none;
+//         -webkit-mask-image: none;m
 //       }
 //     }
 //   }
