@@ -41,20 +41,18 @@ const GoalList = () => {
     }
   }
 
-  const setMonthlyPrice = async (e) => {
-    e.preventDefault();
-    const res = await fetch("/razorpay", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        // monthlyprice
-      })
-    });
-    
-    const data = await res.json();
-  }
+  // const setMonthlyPrice = async (e) => {
+  //   e.preventDefault();
+  //   const res = await fetch("/razorpay", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       // monthlyprice
+  //     })
+  //   });
+
 // ---------------------
   useEffect(() => 
   {
@@ -97,19 +95,50 @@ const __DEV__ = document.domain === 'localhost'
 
  const [name, setName] = useState('Dev')
 
- async function displayRazorpay() {
+  return (
+    <div>
+      <br></br>
+      <br></br>
+      <br></br> 
+      {
+        goal1.map((prod,i) => (
+        <span className="rowwise" key={i}>
+          <div className="col-md-12">
+            <div className="step">
+            <img id='goalsimg'
+                    src={prod.imgURL}
+                    alt="Image"
+                    className="img-fluid"
+                  />
+              <h3>{prod.title}</h3>             
+              <h4>{prod.price}/-</h4>
+              <h4>{prod.price75}/-</h4>
+              <h4>{prod.month}</h4>
+              <h4>{prod.duration}</h4>
+              <h4>{prod.monthlyprice}/-</h4>
+        
+              <button type="submit" className="goalbutton btn btn-outline-light" 
+             		onClick={ async function displayRazorpay() {
    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
    if (!res) {
      alert('Razorpay SDK failed to load. Are you online?')
      return
    }
-
-   const data = await fetch('http://localhost:5000/razorpay', { method: 'POST' }).then((t) =>
+   const  monthlypricee = prod.monthlyprice;
+   console.log("+++++++++++",monthlypricee);
+   const data = await fetch('http://localhost:5000/razorpay', 
+   { method: 'POST',
+     headers: {
+            "Content-Type": "application/json"
+          },
+     body: JSON.stringify({
+          monthlypricee
+    })}).then((t) =>
      t.json()
    )
 
-   console.log(data)
+   console.log("miaaaaaaaaaaaaaaaaaaaaaaaa")
 
    const options = {
      key: 'rzp_test_cMV1GfmpfhYe5T',
@@ -133,53 +162,9 @@ const __DEV__ = document.domain === 'localhost'
    const paymentObject = new window.Razorpay(options)
    paymentObject.open()
  }
-
-
-  return (
-    <div>
-      <br></br>
-      <br></br>
-      <br></br> 
- 
-      {
-        goal1.map((prod,i) => (
-        <span className="rowwise" key={i}>
-          <div className="col-md-12">
-            <div className="step">
-            <img id='goalsimg'
-                    src={prod.imgURL}
-                    alt="Image"
-                    className="img-fluid"
-                  />
-              <h3>{prod.title}</h3>             
-              <h4>{prod.price}/-</h4>
-              <h4>{prod.price75}/-</h4>
-              <h4>{prod.month}</h4>
-              <h4>{prod.duration}</h4>
-              <h4>{prod.monthlyprice}/-</h4>
-              <a
-					className="App-link"
-					onClick={()=>{displayRazorpay();
-           {
-              // e.preventDefault();
-              const  monthlyprice = prod.price;
-              console.log("+++++++++++",monthlyprice);
-              const res =  fetch("/goal", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                  monthlyprice
-                })
-              });
-}}}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Pay Rs. 5000
-				</a>
-              <button type="submit" className="goalbutton btn btn-outline-light" > Payment </button>
+      
+}
+              > Payment </button>
               <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
               <br/>     
             </div>

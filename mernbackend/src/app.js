@@ -1,4 +1,4 @@
-const dotenv=require('dotenv');
+const dotenv = require('dotenv');
 const express = require("express");
 const path = require("path");
 // const app = express();
@@ -49,39 +49,44 @@ app.post('/verification', (req, res) => {
 
 app.post('/razorpay', async (req, res) => {
 
-    const amount=5000
-	const payment_capture = 1
-	const currency = 'INR'
-
-	const options = {
-		amount: amount * 100,
-		currency,
-		receipt: shortid.generate(),
-		payment_capture
-	}
-
 	try {
+		const { monthlypricee } = req.body
+		const a=monthlypricee
+		const amount= a
+		console.log("////////", amount)
+		// console.log("////////???????????????????????????????????????????????")
+
+		const payment_capture = 1
+		const currency = 'INR'
+
+		const options = {
+			amount: amount * 100,
+			currency,
+			receipt: shortid.generate(),
+			payment_capture,
+		}
+
 		const response = await razorpay.orders.create(options)
 		console.log(response)
 		res.json({
 			id: response.id,
 			currency: response.currency,
-			amount: response.amount
+			amount: response.amount,
 		})
+		console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",new Date(Date.now()))
 	} catch (error) {
 		console.log(error)
 	}
 })
 
-
 // ---------------Ayush---------------------------------------------------
-dotenv.config({path:'./config.env'});
+dotenv.config({ path: './config.env' });
 //const hbs = require("hbs");
 
 require("./db/conn");
 app.use(express.json());
 const Register = require("./models/register");
-
+const { time } = require('console');
 
 // const middleware = (req, res, next) => {
 //     console.log('Hello my middleware');
@@ -119,7 +124,7 @@ const port = 5000 || process.env.PORT;
 
 
 app.listen(port, () => {
-    console.log(`server is running at port number ${port}`);
+	console.log(`server is running at port number ${port}`);
 });
 
 

@@ -112,8 +112,6 @@ router.get("/profile", authenticate, (req, res) => {
   res.send(req.rootUser);
 });
 
-
-
 router.post('/contact', authenticate, async (req, res) => {
   // let userMessage;
   try {
@@ -165,6 +163,5 @@ router.get("/logout", (req, res) => {
   res.clearCookie('jwtoken', { path: '/login' });
   res.status(200).send('User Logout');
 });
-
 
 module.exports = router;
