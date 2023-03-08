@@ -152,6 +152,7 @@ const __DEV__ = document.domain === 'localhost'
        alert(response.razorpay_payment_id)
        alert(response.razorpay_order_id)
        alert(response.razorpay_signature)
+       console.log("~~~~~~~~~~~~~~~~~~~~~~~",response)
      },
      prefill: {
        name,

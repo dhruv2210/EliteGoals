@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { UserContext } from "../App";
+import "./profile.css";
 
 // let userData=[];
 const Profile = () => {
@@ -29,7 +30,7 @@ const Profile = () => {
       console.log(err);
     });
   }
-  
+
 
   useEffect(() => {
     const getUser = async () => {
@@ -40,30 +41,53 @@ const Profile = () => {
   }, []);
 
 
-  
+
   return (
     <>
       <br></br>
       <br></br>
       <br></br>
       <br></br>
-      <div>
-        <span className="rowwise">
-          <div className="col-md-12" >
-            <div className="step">
-              <h3>{userData.fname}</h3>
-              <h3>{userData.lname}</h3>
-              <h3>{userData.dob}</h3>
-              <h3>{userData.phone}</h3>
-              <h3>{userData.pyin}</h3>
-              <h3>{userData.email}</h3>
-              <h3>{userData.aadharNumber}</h3>
-              <h3>{userData.fname}</h3>
-              <button type="submit" className="goalbutton btn btn-outline-light" onClick={logout}> Logout </button>
+        <div className="container box_profile" data-aos="fade-up">
+
+          <form id="enterinfo" className="row form-control-lg">
+            <div className="col-12 mt-3 mb-2">        
             </div>
-          </div>
-        </span>
-      </div>
+            <div className="col-12 mt-3 mb-2">        
+            </div>
+            
+
+            <div className="col-12 mt-3 mb-2">
+              <h3>Name: {userData.fname} {userData.lname}</h3>
+            </div>
+            <div className="col-md-6 mt-2 mb-2">
+              <h3>Phone Number: {userData.phone}</h3>
+            </div>
+            <div className="col-md-6 mt-2 mb-2">
+              <h3>DOB: {userData.dob}</h3>
+            </div>
+            <div className="col-md-6 mt-2 mb-2">
+              <h3>Email: {userData.email}</h3>
+            </div>
+            <div className="col-md-6 mt-2 mb-2">
+              <h3>Aadhar Number: {userData.aadharNumber}</h3>
+            </div>
+
+            <div className="col-12 mt-3 mb-2">        
+            </div>
+
+            <div className=" col-12 mt-2 mb-2 ">
+              <button type="submit" className="goalbutton btn btn-outline-light" onClick={logout}><b> Logout</b> </button>
+            </div>
+
+            <div className="col-12 mt-3 mb-2">        
+            </div>
+            <div className="col-12 mt-3 mb-2">        
+            </div>
+          </form>
+        </div>
+
+      
     </>
   );
 }

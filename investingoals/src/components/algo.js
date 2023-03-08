@@ -1,6 +1,10 @@
-let goalsCompleted=5;
-let paymentsMissed=4;
-let duration=24;
+let goalsCompleted=0;
+let paymentsMissed=0;
+let duration=12;
+
+let minDiscount=2;
+let midDiscount=5;
+let maxDiscount=10;
 
 const total=100;
 let obtainedPoints=0;
@@ -41,7 +45,7 @@ let obtainedPoints=0;
     {
         obtainedPoints += 22.5;
     }
-    else if(duration==36)
+    else
     {
         obtainedPoints += 30;
     }
@@ -78,3 +82,18 @@ let obtainedPoints=0;
 }
 
 console.log(obtainedPoints)
+
+if(obtainedPoints>=70)
+{
+    console.log(maxDiscount)
+}
+else if(obtainedPoints<70 && obtainedPoints>=45)
+{
+    console.log(midDiscount)
+}
+else
+{
+    console.log(minDiscount)
+}
+
+
