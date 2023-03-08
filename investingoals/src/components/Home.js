@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import { NavLink } from "react-router-dom";
+import Chatbot from "./chatbot";
 
 function App() {
   return (
@@ -500,6 +501,7 @@ function App() {
           </div>
         </section>
 
+      <Chatbot/>
 
 
         <a
