@@ -4,7 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 
 
+
   // const [userData, setUserData] = useState({fname:"", email:"", phone:"", message:""});
+  
 
 const GoalList = () => {
   const [{ goal },dispatch] = useStateValue();
@@ -39,6 +41,21 @@ const GoalList = () => {
     }
   }
 
+  const setMonthlyPrice = async (e) => {
+    e.preventDefault();
+    const res = await fetch("/razorpay", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        // monthlyprice
+      })
+    });
+    
+    const data = await res.json();
+  }
+// ---------------------
   useEffect(() => 
   {
     const fetchdata = async () => {
@@ -62,6 +79,62 @@ const GoalList = () => {
     })
  }
 
+ function loadScript(src) {
+	return new Promise((resolve) => {
+		const script = document.createElement('script')
+		script.src = src
+		script.onload = () => {
+			resolve(true)
+		}
+		script.onerror = () => {
+			resolve(false)
+		}
+		document.body.appendChild(script)
+	})
+}
+
+const __DEV__ = document.domain === 'localhost'
+
+ const [name, setName] = useState('Dev')
+
+ async function displayRazorpay() {
+   const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
+
+   if (!res) {
+     alert('Razorpay SDK failed to load. Are you online?')
+     return
+   }
+
+   const data = await fetch('http://localhost:5000/razorpay', { method: 'POST' }).then((t) =>
+     t.json()
+   )
+
+   console.log(data)
+
+   const options = {
+     key: 'rzp_test_cMV1GfmpfhYe5T',
+     currency: data.currency,
+     amount: data.amount.toString(),
+     order_id: data.id,
+     name: 'Installment',
+     description: 'Thank you for nothing.',
+     image: 'http://localhost:5000/logo.svg',
+     handler: function (response) {
+       alert(response.razorpay_payment_id)
+       alert(response.razorpay_order_id)
+       alert(response.razorpay_signature)
+     },
+     prefill: {
+       name,
+       email: 'sdfdsjfh2@ndsfdf.com',
+       phone_number: '9899999999'
+     }
+   }
+   const paymentObject = new window.Razorpay(options)
+   paymentObject.open()
+ }
+
+
   return (
     <div>
       <br></br>
@@ -84,10 +157,30 @@ const GoalList = () => {
               <h4>{prod.month}</h4>
               <h4>{prod.duration}</h4>
               <h4>{prod.monthlyprice}/-</h4>
-          
+              <a
+					className="App-link"
+					onClick={()=>{displayRazorpay();
+           {
+              // e.preventDefault();
+              const  monthlyprice = prod.price;
+              console.log("+++++++++++",monthlyprice);
+              const res =  fetch("/goal", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                  monthlyprice
+                })
+              });
+}}}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Pay Rs. 5000
+				</a>
               <button type="submit" className="goalbutton btn btn-outline-light" > Payment </button>
               <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
-              
               <br/>     
             </div>
           </div>    
