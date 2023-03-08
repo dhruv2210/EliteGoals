@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { UserContext } from "../App";
-import "./profile.css";
+// import "./profile.css";
 
 // let userData=[];
 const Profile = () => {
@@ -48,46 +48,47 @@ const Profile = () => {
       <br></br>
       <br></br>
       <br></br>
-        <div className="container box_profile" data-aos="fade-up">
+      <div>
+        <span className="rowwise">
+          <div className="col-md-12" >
+            <div className="step">
 
-          <form id="enterinfo" className="row form-control-lg">
-            <div className="col-12 mt-3 mb-2">        
-            </div>
-            <div className="col-12 mt-3 mb-2">        
-            </div>
-            
+              <form id="enterinfo" className="row form-control-lg">
+                <div className="col-12 mt-3 mb-2">
+                  <h3>Name:  {userData.fname}  {userData.lname}</h3>
+                </div>
 
-            <div className="col-12 mt-3 mb-2">
-              <h3>Name: {userData.fname} {userData.lname}</h3>
-            </div>
-            <div className="col-md-6 mt-2 mb-2">
-              <h3>Phone Number: {userData.phone}</h3>
-            </div>
-            <div className="col-md-6 mt-2 mb-2">
-              <h3>DOB: {userData.dob}</h3>
-            </div>
-            <div className="col-md-6 mt-2 mb-2">
-              <h3>Email: {userData.email}</h3>
-            </div>
-            <div className="col-md-6 mt-2 mb-2">
-              <h3>Aadhar Number: {userData.aadharNumber}</h3>
-            </div>
+                <div className="col-md-6 mt-2 mb-2">
+                  <h3>Email: {userData.email}</h3>
+                </div>
+                <div className="col-md-6 mt-2 mb-2">
+                  <h3>DOB: {userData.dob[8]}{userData.dob[9]}/{userData.dob[5]}{userData.dob[6]}/{userData.dob[0]}{userData.dob[1]}{userData.dob[2]}{userData.dob[3]}   </h3>
+                </div>
 
-            <div className="col-12 mt-3 mb-2">        
-            </div>
+                <div className="col-md-6 mt-2 mb-2">
+                  <h3>Phone: {userData.phone}</h3>
+                </div>
+                <div className="col-md-6 mt-2 mb-2">
+                  <h3>Aadhar Number: {userData.aadharNumber}</h3>
+                </div>
 
-            <div className=" col-12 mt-2 mb-2 ">
-              <button type="submit" className="goalbutton btn btn-outline-light" onClick={logout}><b> Logout</b> </button>
-            </div>
 
-            <div className="col-12 mt-3 mb-2">        
-            </div>
-            <div className="col-12 mt-3 mb-2">        
-            </div>
-          </form>
-        </div>
+                <div className=" col-12 mt-2 mb-2 ">
 
-      
+                </div>
+
+
+                <div className="col-12 mt-2 mb-2">
+                  <button type="submit" className="goalbutton btn btn-outline-light" onClick={logout}> Logout </button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </span>
+      </div>
+
+
     </>
   );
 }
