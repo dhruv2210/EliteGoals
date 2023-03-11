@@ -1,8 +1,9 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
+
+
 function Footer() {
-  return (
-    // sdjkfhjk
+return (
 
 <footer className="footer" role="contentinfo">
     <div className="container">
@@ -69,7 +70,7 @@ function Footer() {
         <div className="col-md-7">
           <p className="copyright">&copy; Copyright Invest In Goals. All Rights Reserved</p>
           <div className="credits">
-            Designed by Ayush , Dhruv & Dev.
+            Designed by Ayush , Dev & Dhruv.
           </div>
         </div>
       </div>
