@@ -10,6 +10,7 @@ import Signup from "./components/Signup";
 import AddProduct from "./components/AddProduct";
 import Profile from "./components/Profile";
 import GoalList from "./components/GoalList";
+import Otpverification from "./components/Otpverification";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createContext, useReducer } from "react";
@@ -30,6 +31,7 @@ const Routing = () => {
         <Route exact path="/Goals" element={<Goals />} />
         <Route exact path="/SetGoal" element={<SetGoal />} />
         <Route exact path="/Login" element={<Login></Login>} />
+        <Route exact path="/Otpverification" element={<Otpverification />} />
         <Route exact path="/Signup" element={<Signup />} />
         <Route exact path="/AddProduct" element={<AddProduct></AddProduct>} />
         <Route exact path="/Profile" element={<Profile></Profile>} />

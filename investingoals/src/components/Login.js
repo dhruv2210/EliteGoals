@@ -88,7 +88,7 @@ const Login = () => {
                 placeholder="Password"
                 required="" />
             </div>
-            <a className="signUp" href="/Signup">
+            <a className="signUp" href="/Otpverification">
               Do not have account?
             </a>
             <div className="col-12 mt-2 mb-2">
@@ -96,6 +96,7 @@ const Login = () => {
             </div>
 
           </form>
+          
         </div>
       </div>
     </div>
