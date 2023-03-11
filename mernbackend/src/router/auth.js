@@ -34,7 +34,7 @@ router.post("/productsadd", (req, res) => {
 });
 
 router.get("/productsget", (req, res) => {
-  0
+
   Products.find((err, data) => {
     if (err) {
       res.status(500).send(err);
@@ -88,7 +88,7 @@ router.post('/login', async (req, res) => {
 
 
       res.cookie("jwtoken", token, {
-        expires: new Date(Date.now() + 2589200000099999999999999),
+        expires: new Date(Date.now() + 2589209999),
         htttpOnly: true,
       });
 
@@ -108,8 +108,13 @@ router.post('/login', async (req, res) => {
 });
 
 router.get("/profile", authenticate, (req, res) => {
-  console.log('-------------------------------------------');
   res.send(req.rootUser);
+});
+
+
+router.get("/paymentdetails", authenticate, (req, res) => {
+  res.send(req.rootUser);
+  console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&",req.rootUser);
 });
 
 router.post('/contact', authenticate, async (req, res) => {
@@ -138,15 +143,9 @@ router.post('/contact', authenticate, async (req, res) => {
 router.post('/goal', authenticate, async (req, res) => {
 
   try {
-    // console.log("inside---------------",monthlyprice);
     const { title, price, price75, monthlyprice, duration, imgURL } = req.body;
-
-    // if (!title || !price || !price75 || !monthlyprice) {
-    //   console.log("ERROR: goal")
-    //   return res.json({ error: "Plz filled the field goal property" });
-    // }
-
     const userGoal = await Register.findOne({ _id: req.userID });
+    // console.log("*******************", userGoal);
 
     if (userGoal) {
       const usersettedGoal = await userGoal.addGoal(title, price, price75, monthlyprice, duration, imgURL);
@@ -168,15 +167,29 @@ router.get("/logout", (req, res) => {
 router.post('/payment', authenticate, async (req, res) => {
 
   try {
-   
-    const {  payment_count,payment_id,monthlypricee,duration,date } = req.body;
-    
+    console.log(req.body);
+    const { payment_count, payment_id, monthlypricee, duration, date, id } = req.body;
+    let f;
+    let uu;
     const userPay = await Register.findOne({ _id: req.userID });
+    let data;
+    userPay.goals.map((item) => {
+      const userG = Buffer.from(item._id);
+      const i = Buffer.from(id);
 
-    if (userPay) {
-      const usersettedPayment = await userPay.addPayment( payment_count,payment_id,monthlypricee,duration,date);
-      res.status(201).json({ message: "user payment successfully added to mongodb" });
-    }
+      f = Buffer.compare(userG, i);
+      if (!f) {
+        uu = item;
+        uu.payment.push(req.body);
+        data = userG;
+      }
+    })
+    // console.log("*******************", uu);
+    // console.log(uu);
+    // console.log(data);
+    await userPay.save();
+    res.status(201).json({ message: "user payment successfully added to mongodb" });
+
   } catch (error) {
     console.log(error);
   }

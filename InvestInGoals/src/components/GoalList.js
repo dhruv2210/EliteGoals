@@ -85,7 +85,7 @@ const __DEV__ = document.domain === 'localhost'
       <br></br>
       <br></br> 
       {
-        goal1.map((prod,i) => (
+        goal1.map((prod,i=0) => (
         <span className="rowwise" key={i}>
           <div className="col-md-12">
             <div className="step">
@@ -103,6 +103,7 @@ const __DEV__ = document.domain === 'localhost'
         
               <button type="submit" className="goalbutton btn btn-outline-light" 
              		onClick={ async function displayRazorpay() {
+                
    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
    if (!res) {
@@ -111,6 +112,7 @@ const __DEV__ = document.domain === 'localhost'
    }
    const  monthlypricee = prod.monthlyprice;
    const  duration = prod.duration;
+   const id=prod._id;
    console.log("+++++++++++",monthlypricee);
    const data = await fetch('http://localhost:5000/razorpay', 
    { method: 'POST',
@@ -139,7 +141,15 @@ const __DEV__ = document.domain === 'localhost'
        alert(response.razorpay_signature)
        const payment_id=response.razorpay_payment_id
        flag=true 
+
+
+      
+       const res = axios.get('/paymentdetails');
+       console.log("@@@@@@@@@@@@@@@@@@@@@",res)
+  
        payment_count++
+
+
        alert(payment_count)
        const date=new Date(Date.now())
        alert(date)
@@ -149,7 +159,7 @@ const __DEV__ = document.domain === 'localhost'
                     "Content-Type": "application/json"
                   },
             body: JSON.stringify({
-                  payment_count,payment_id,monthlypricee,duration,date
+                  payment_count,payment_id,monthlypricee,duration,date,id
             })}).then((t) =>
             t.json()
           )

@@ -90,7 +90,7 @@ const CustomerRegistrationSchema = new mongoose.Schema({
                     }
                 }
             ]
-           
+
         }
     ],
 
@@ -167,9 +167,10 @@ CustomerRegistrationSchema.methods.addGoal = async function (title, price, price
     }
 }
 
-CustomerRegistrationSchema.methods.addPayment = async function ( payment_count,payment_id,monthlypricee,duration,date) {
+CustomerRegistrationSchema.methods.addPayment = async function (payment_count, payment_id, monthlypricee, duration, date) {
     try {
-        this.goals.payment = this.goals.payment.concat({ payment_count,payment_id,monthlypricee,duration,date });
+        console.log(this.goals +"rgrgerfregegefgefgfref")
+        this.goals.payment = this.goals.payment.concat({ payment_count, payment_id, monthlypricee, duration, date });
         await this.goals.save();
         return this.goals.payment;
     }
