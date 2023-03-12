@@ -9,17 +9,24 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "aadhaar-validator": "^1.1.0",
     "axios": "^1.2.4",
     "date-and-time": "^2.4.2",
+    "firebase": "^9.17.2",
     "install": "^0.13.0",
+    "otp-input-react": "^0.3.0",
+    "razorpay": "^2.8.6",
     "react": "^18.2.0",
     "react-currency-format": "^1.1.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
     "react-jwt": "^1.1.8",
+    "react-phone-input-2": "^2.15.1",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",
     "styled-components": "^5.3.6",
+    "swiper": "^9.1.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
   }
 }

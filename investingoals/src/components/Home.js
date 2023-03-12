@@ -1,6 +1,10 @@
+import React from 'react';
 import Navbar from "./Navbar";
 import { NavLink } from "react-router-dom";
 import Chatbot from "./chatbot";
+
+
+
 
 function App() {
   return (
@@ -167,6 +171,15 @@ function App() {
 
         <section className="section">
           <div className="container" data-aos="fade-up">
+          <div className="row justify-content-center text-center">
+              <div className="col-md-7 mb-5">
+                <h2 className="section-heading">Steps</h2>
+                {/* <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Facere illum obcaecati inventore velit laborum earum.
+                </p> */}
+              </div>
+            </div>
             <div className="row">
               <div className="col-md-4">
                 <div className="step">
@@ -319,11 +332,7 @@ function App() {
                         <h3>Excellent App!</h3>
                         <blockquote>
                           <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. Eius ea delectus pariatur, numquam aperiam
-                            dolore nam optio dolorem facilis itaque voluptatum
-                            recusandae deleniti minus animi, provident
-                            voluptates consectetur maiores quos.
+                          EliteGoals is a goal-setting app that helps you set achievable goals and stay accountable to yourself. It has a 4.5-star rating on Webapp, with many customers liking its goal-setting, reminders, and motivation to stick to their goals and get great discounts!!!.
                           </p>
                         </blockquote>
 
@@ -514,5 +523,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import React from "react";
 import "./AboutUs.css";
-function About() {
+function AboutUs() {
 
 
 
@@ -87,4 +87,4 @@ function About() {
     );
 }
 
-export default About;
+export default AboutUs;

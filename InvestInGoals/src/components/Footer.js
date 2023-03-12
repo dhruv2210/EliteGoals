@@ -22,17 +22,26 @@ return (
           <div className="row site-section pt-0">
             <div className="col-md-4 mb-4 mb-md-0">
               <h3>Navigation</h3>
-              <ul className="list-unstyled">
+              <ul className="list-unstyled footer-li">
               <li>
-              <NavLink className="active" to="/">
+                <a >
+              <NavLink className="" to="/">
+                  
                 Home
               </NavLink>
+                </a>
             </li> 
             <li>
-              <a href="#">Your Goals</a>
+              <NavLink className="" to="/GoalList">
+                  
+               Your Goals
+              </NavLink>
             </li>
             <li>
-              <a href="#">About Us</a>
+            <NavLink className="" to="/AboutUS">
+                  
+                 About Us
+                 </NavLink>
             </li>
             
             <li>
@@ -44,16 +53,16 @@ return (
             </div>
             <div className="col-md-4 mb-4 mb-md-0">
               <h3>Services</h3>
-              <ul className="list-unstyled">
-                <li><a href="#">Team</a></li>
-                <li><a href="#">Collaboration</a></li>
-                <li><a href="#">Advertisements</a></li>
-                <li><a href="#">Chatbot</a></li>
+              <ul className="list-unstyled footer-li">
+                <li><a href="/contactus">Team</a></li>
+                <li><a href="/contactus">Collaboration</a></li>
+                <li><a href="/contactus">Advertisements</a></li>
+                <li><a href="/">Chatbot</a></li>
               </ul>
             </div>
             <div className="col-md-4 mb-4 mb-md-0">
               <h3>For any query</h3>
-              <ul className="list-unstyled">
+              <ul className="list-unstyled footer-li">
               <li>
               <NavLink className="" to="/Contactus">
                 Contactus
