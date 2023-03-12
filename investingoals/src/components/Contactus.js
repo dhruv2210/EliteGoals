@@ -221,8 +221,8 @@ function Contactus() {
                           className="img-fluid rounded-circle mb-3"
                         />
                         <span className="d-block">
-                          <span className="text-black">Jean Doe</span>, &mdash;
-                          App User
+                          <span className="text-black">Milli</span>, 
+                          - App User
                         </span>
                       </p>
                     </div>

@@ -343,8 +343,8 @@ function App() {
                             className="img-fluid rounded-circle mb-3"
                           />
                           <span className="d-block">
-                            <span className="text-black">Jean Doe</span>,
-                            &mdash; App User
+                            <span className="text-black">Milli</span>,
+                            - App User
                           </span>
                         </p>
                       </div>
@@ -446,62 +446,52 @@ function App() {
 
                 <div className="clients-slider swiper-container">
                   <div className="swiper-wrapper align-items-center">
-                    <div className="swiper-slide">
+                    
                       <img
                         src=".assets/img/clients/client-1.png"
                         className="img-fluid"
                         alt=""
-                      />
-                    </div>
-                    <div className="swiper-slide">
+                     />
+                   
                       <img
                         src="assets/img/clients/client-2.png"
                         className="img-fluid"
                         alt=""
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    
+                   
                       <img
                         src="assets/img/clients/client-3.png"
                         className="img-fluid"
                         alt=""
                       />
-                    </div>
-                    <div className="swiper-slide">
                       <img
                         src="assets/img/clients/client-4.png"
                         className="img-fluid"
                         alt=""
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    
+                  
                       <img
                         src="assets/img/clients/client-5.png"
                         className="img-fluid"
                         alt=""
                       />
-                    </div>
-                    <div className="swiper-slide">
+                    
+                 
                       <img
                         src="assets/img/clients/client-6.png"
                         className="img-fluid"
                         alt=""
                       />
-                    </div>
-                    <div className="swiper-slide">
+                   
+                   
                       <img
                         src="assets/img/clients/client-7.png"
                         className="img-fluid"
                         alt=""
                       />
-                    </div>
-                    <div className="swiper-slide">
-                      <img
-                        src="assets/img/clients/client-8.png"
-                        className="img-fluid"
-                        alt=""
-                      />
-                    </div>
+                   
                   </div>
                   <div className="swiper-pagination"></div>
                 </div>
