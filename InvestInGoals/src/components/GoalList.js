@@ -65,7 +65,7 @@ const GoalList = () => {
   useEffect(() => 
   {
     callProfilePage(); 
-  }, []);
+  }, [userp]);
 
  const removeFromGOal = (e,id)=>{
     e.preventDefault();
@@ -142,7 +142,7 @@ const __DEV__ = document.domain === 'localhost'
    )
 
    console.log("miaaaaaaaaaaaaaaaaaaaaaaaa")
-
+   callProfilePage();
    const options = {
      key: 'rzp_test_cMV1GfmpfhYe5T',
      currency: data.currency,
@@ -157,7 +157,7 @@ const __DEV__ = document.domain === 'localhost'
        alert(response.razorpay_signature)
        const payment_id=response.razorpay_payment_id
        flag=true  
-
+   console.log("______________",userp)
     if(userp.goals==undefined){
       payment_count=1;
     }
