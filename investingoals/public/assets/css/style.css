@@ -444,12 +444,17 @@ section {
 
 
 
-
+.swiper-wrapper>img{
+  width: 16% !important;
+    padding: 63px 20px !important;
+}
 
 /* clients */
-.clients .clients-slider .swiper-slide img {
+.clients .clients-slider .swiper-slide>img {
   opacity: 0.5;
   transition: 0.3s;
+
+
 }
 
 .clients .clients-slider .swiper-slide img:hover {
