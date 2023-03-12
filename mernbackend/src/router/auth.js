@@ -121,6 +121,8 @@ router.post('/contact', authenticate, async (req, res) => {
   // let userMessage;
   try {
     const { fname, email, phone, message } = req.body;
+    console.log("5555555555555555555555555555",req.body)
+    
 
     if (!fname || !email || !phone || !message) {
       console.log("ERROR: Contact")
@@ -131,6 +133,7 @@ router.post('/contact', authenticate, async (req, res) => {
 
     if (userContact) {
       const userMessage = await userContact.addMessage(fname, email, phone, message);
+      console.log("Contact")
       res.status(201).json({ message: "user contact successfully" });
     }
 
@@ -168,7 +171,7 @@ router.post('/payment', authenticate, async (req, res) => {
 
   try {
     console.log(req.body);
-    const { payment_count, payment_id, monthlypricee, duration, date, id } = req.body;
+    const { payment_count, payment_id, monthlypricee, duration, date, nextdate, id } = req.body;
     let f;
     let uu;
     const userPay = await Register.findOne({ _id: req.userID });

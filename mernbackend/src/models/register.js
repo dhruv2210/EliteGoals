@@ -87,6 +87,10 @@ const CustomerRegistrationSchema = new mongoose.Schema({
                     date: {
                         type: Date,
                         required: false
+                    },
+                    nextdate: {
+                        type: Date,
+                        required: false
                     }
                 }
             ]

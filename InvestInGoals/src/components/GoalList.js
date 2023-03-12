@@ -2,9 +2,10 @@ import React, { useState ,useEffect} from 'react';
 import { useStateValue } from '../StateProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+// import { count } from '../../../mernbackend/src/models/Products';
   
 let flag=false;
-let payment_count=0;
+let payment_count=1;
 
 const GoalList = () => {
   const [{ goal },dispatch] = useStateValue();
@@ -13,6 +14,7 @@ const GoalList = () => {
  
   const [userData, setUserData] = useState("");
   const [goal1, setGoal] = useState([]);
+  const [userp, setUserp] = useState([]);
 
   const callProfilePage = async () => {
     try {
@@ -26,9 +28,11 @@ const GoalList = () => {
       });
 
       const data = await res.json();
-      console.log(data);
       setUserData(data);
-
+      setGoal(data.goals); 
+      setUserp(data);
+      
+      
       if (!res.status === 200) {
         const error = new Error(res.error);
         throw error;
@@ -38,14 +42,24 @@ const GoalList = () => {
       history('/Login');
     }
   }
+  console.log(".........................",userp);
+
+  // useEffect(() => 
+  // {
+  //   const fetchdata = async () => {
+  //     const data1 = await axios.get("/profile");
+  //     setGoal(data1.data.goals); 
+  //     setUserp(data1.data)
+  //     console.log("__________",data1.data) ;
+      
+  //   };
+  //   fetchdata();    
+  // }, []);
+
   useEffect(() => 
   {
-    const fetchdata = async () => {
-      const data1 = await axios.get("/profile");
-      setGoal(data1.data.goals); 
-    };
-    fetchdata();    
-  }, []);
+    console.log("///////////",userp) ;
+  }, [userp]);
 
   console.log("this is your user------",goal1);
   useEffect(() => 
@@ -94,12 +108,12 @@ const __DEV__ = document.domain === 'localhost'
                     alt="Image"
                     className="img-fluid"
                   />
-              <h3>{prod.title}</h3>             
-              <h4>{prod.price}/-</h4>
-              <h4>{prod.price75}/-</h4>
-              <h4>{prod.month}</h4>
-              <h4>{prod.duration}</h4>
-              <h4>{prod.monthlyprice}/-</h4>
+              <h4><b>Product:</b> {prod.title}</h4>             
+              <h4><b>Price:</b> {prod.price}/-</h4>
+              {/* <h4>{prod.price75}/-</h4> */}
+          
+              <h4><b>Duration: </b>{prod.duration}</h4>
+              <h4><b>Installment: </b> {prod.monthlyprice}/-</h4>
         
               <button type="submit" className="goalbutton btn btn-outline-light" 
              		onClick={ async function displayRazorpay() {
@@ -110,6 +124,8 @@ const __DEV__ = document.domain === 'localhost'
      alert('Razorpay SDK failed to load. Are you online?')
      return
    }
+
+
    const  monthlypricee = prod.monthlyprice;
    const  duration = prod.duration;
    const id=prod._id;
@@ -140,18 +156,32 @@ const __DEV__ = document.domain === 'localhost'
        alert(response.razorpay_order_id)
        alert(response.razorpay_signature)
        const payment_id=response.razorpay_payment_id
-       flag=true 
+       flag=true  
 
+    if(userp.goals==undefined){
+      payment_count=1;
+    }
+    else{
+      userp.goals.map((pp)=>{
+           if(pp._id==id){
+            const pay=pp.payment;     
+            payment_count=pay.length+1;  
+            console.log("AAAAAAAAAAAAAAAAAAA",payment_count)
+            console.log("ffffffffffffffffffff",pp.payment) 
+           }
+      })
+    }     
 
-      
-       const res = axios.get('/paymentdetails');
-       console.log("@@@@@@@@@@@@@@@@@@@@@",res)
-  
-       payment_count++
-
-
+   //  console.log("4444444444444444444444444444444444",userp.goals)
+          
        alert(payment_count)
+
+       //30 day duration
+       var day = 30 * 60 * 60 * 24 * 1000;
+
        const date=new Date(Date.now())
+       const nextdate=new Date(Date.now()+day)
+
        alert(date)
        const data =  fetch('/payment', 
           { method: 'POST',
@@ -159,7 +189,7 @@ const __DEV__ = document.domain === 'localhost'
                     "Content-Type": "application/json"
                   },
             body: JSON.stringify({
-                  payment_count,payment_id,monthlypricee,duration,date,id
+                  payment_count,payment_id,monthlypricee,duration,date,nextdate,id
             })}).then((t) =>
             t.json()
           )

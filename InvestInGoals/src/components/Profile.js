@@ -36,6 +36,7 @@ const Profile = () => {
   useEffect(() => {
     const getUser = async () => {
       const response = await axios.get('/profile');
+      console.log("Ayuuuuuuuuuuuuuuuuuuuuuuuuuu mayuuuuuuuuuuuuuuuu",response)
       setUserData(response.data);
     }
     getUser();
