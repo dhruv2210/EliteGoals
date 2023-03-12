@@ -1,6 +1,10 @@
+import React from 'react';
 import Navbar from "./Navbar";
 import { NavLink } from "react-router-dom";
 import Chatbot from "./chatbot";
+
+
+
 
 function App() {
   return (
@@ -167,6 +171,15 @@ function App() {
 
         <section className="section">
           <div className="container" data-aos="fade-up">
+          <div className="row justify-content-center text-center">
+              <div className="col-md-7 mb-5">
+                <h2 className="section-heading">Steps</h2>
+                {/* <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Facere illum obcaecati inventore velit laborum earum.
+                </p> */}
+              </div>
+            </div>
             <div className="row">
               <div className="col-md-4">
                 <div className="step">
@@ -514,5 +527,6 @@ function App() {
     </>
   );
 }
+
 
 export default App;

@@ -108,11 +108,12 @@ const Signup = () => {
             </div>
 
             <div className="col-12 mt-3 mb-2">
+     
               <input className="form-control"
                 type="email" name="email"
                 value={user.email}
                 onChange={handleInputs}
-                placeholder="Email" required=""
+                placeholder="Email"  pattern=".+@globex\.com" size="30" required
               />
             </div>
 
@@ -122,7 +123,7 @@ const Signup = () => {
                 value={user.aadharNumber}
                 onChange={handleInputs}
                 placeholder="Aadhar Number"
-                required=""
+                required
               />
             </div>
 
@@ -155,7 +156,7 @@ const Signup = () => {
             </div>
 
             <div className="col-12 mt-2 mb-2">
-              <input type="checkbox"  required=""/> <a href="">Agree to terms and condition.</a>
+              <input type="checkbox"  required/> <a href="">Agree to terms and condition.</a>
             </div>
 
             <div className="col-12 mt-2 mb-2">
