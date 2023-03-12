@@ -109,15 +109,23 @@ const Otpverification= () => {
             {showOTP ? (
                 <>
                 <br />
+              
+                <div className="col-12 mt-3 mb-2 centers ">
                 <br />
-                <br />
-                
                 <label
                   htmlFor="otp"
                   className="font-bold text-xl text-white text-center"
-                >
-                  Enter your OTP
+                  >
+                    <h5>
+
+                    {"\u00a0\u00a0\u00a0\u00a0"}
+                    {"\u00a0\u00a0\u00a0\u00a0"}
+                    Enter your OTP!!!
+                    </h5>
                 </label>
+                <br />
+                </div>
+               
                 <OtpInput
                   value={otp}
                   onChange={setOtp}
@@ -125,15 +133,26 @@ const Otpverification= () => {
                   otpType="number"
                   disabled={false}
                   autoFocus
-                  className="opt-container "
+                  className="opt-container centers"
                 ></OtpInput>
+                  <br />
+                {"\u00a0\u00a0\u00a0\u00a0"}
+                {"\u00a0\u00a0\u00a0\u00a0"}
+                {"\u00a0\u00a0\u00a0\u00a0"}
+                {"\u00a0\u00a0\u00a0\u00a0"}
+                
+                
                 <button
                   onClick={onOTPVerify}
-                  className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                  className="btn btn-outline-light centers"
                 >
                  
                   <span>Verify OTP</span>
                 </button>
+              
+                <br />
+                <br />
+                <br />
               </>
             ) : (
                 <>
