@@ -11,6 +11,7 @@ import AddProduct from "./components/AddProduct";
 import Profile from "./components/Profile";
 import GoalList from "./components/GoalList";
 import Otpverification from "./components/Otpverification";
+import Chatbot from "./components/chatbot";
 
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { createContext, useReducer } from "react";
@@ -36,6 +37,7 @@ const Routing = () => {
         <Route exact path="/AddProduct" element={<AddProduct></AddProduct>} />
         <Route exact path="/Profile" element={<Profile></Profile>} />
         <Route exact path="/GoalList" element={<GoalList/>} />
+        <Route exact path="/chatbot" element={<Chatbot/>}/>
       </Routes>
       <Footer></Footer>
       </>
