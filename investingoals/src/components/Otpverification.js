@@ -147,7 +147,7 @@ const Otpverification= () => {
                   >
                     <h5>
 
-                  Verify your phone number
+                    {"\u00a0\u00a0"}Verify your phone number
                     </h5>
                 </label>
                 
@@ -158,11 +158,13 @@ const Otpverification= () => {
                 </div>
                     
                 <br />
+                {"\u00a0\u00a0\u00a0\u00a0"}
+                {"\u00a0\u00a0\u00a0\u00a0"}
+                {"\u00a0\u00a0"}
                 <button
                   onClick={onSignup}
                   className="btn btn-outline-light"
                   >
-                  
                   <span>Send code via SMS</span>
                 </button>
                 <br />
