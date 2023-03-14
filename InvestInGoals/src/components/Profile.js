@@ -82,7 +82,7 @@ const Profile = () => {
 
 
                 <div className="col-12 mt-2 mb-2">
-                  <button type="submit" className="goalbutton btn btn-outline-light" onClick={logout}> Logout </button>
+                  <button type="submit" className="goalbutton btn btn-outline-light" onClick={logout}> <a href="/login">Logout</a> </button>
                 </div>
               </form>
 

@@ -114,13 +114,15 @@ router.get("/profile", authenticate, (req, res) => {
 
 router.get("/paymentdetails", authenticate, (req, res) => {
   res.send(req.rootUser);
-  console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&",req.rootUser);
+  console.log("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&", req.rootUser);
 });
 
 router.post('/contact', authenticate, async (req, res) => {
   // let userMessage;
   try {
     const { fname, email, phone, message } = req.body;
+    console.log("5555555555555555555555555555", req.body)
+
 
     if (!fname || !email || !phone || !message) {
       console.log("ERROR: Contact")
@@ -159,7 +161,7 @@ router.post('/goal', authenticate, async (req, res) => {
 router.get("/logout", (req, res) => {
   console.log("Heloo logout ***********");
   // res.cookie.remove('jwtoken',{ path: '/login' })
-  res.clearCookie('jwtoken', { path: '/login' });
+  res.clearCookie('jwtoken', { path: '/' });
   res.status(200).send('User Logout');
 });
 
@@ -204,20 +206,21 @@ router.post('/payment', authenticate, async (req, res) => {
     let uu;
     const userPay = await Register.findOne({_id:uid});
     let data;
-    const obj = {payment_count,payment_id, monthlypricee,duration,date};
-    userPay.goals.map(async (item) => {
-      if(item._id === gid) {
-        item.payment.concat(obj);
-        await userPay.save();
-        res.status(201).json({ message: "user payment successfully added to mongodb" });
 
-      }
-    })
-    // console.log("*******************", uu);
-    // console.log(uu);
-    // console.log(data);
-    // await userPay.save();
-    // res.status(201).json({ message: "user payment successfully added to mongodb" });
+    userPay.goals.map((item) => {
+      const userG = Buffer.from(item._id);
+      const i = Buffer.from(id);
+       f=Buffer.compare(userG,i)
+       if(!f){
+        uu=item;
+        uu.payment.push(req.body);
+        data=userG;
+       }
+
+      })
+  
+    await userPay.save();
+    res.status(201).json({ message: "user payment successfully added to mongodb" });
 
   } catch (error) {
     console.log(error);

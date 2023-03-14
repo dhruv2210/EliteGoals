@@ -91,6 +91,10 @@ const CustomerRegistrationSchema = new mongoose.Schema({
                     nextdate: {
                         type: Date,
                         required: false
+                    },
+                    a: {
+                        type: Date,
+                        required: false
                     }
                 }
             ]

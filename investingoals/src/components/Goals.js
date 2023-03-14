@@ -65,8 +65,7 @@ function Home() {
                   history("/SetGoal");
                 }}>Add to Goal </button>
               </div>
-            </div>    
-     
+            </div>      
       </span>
     </div>
     ))

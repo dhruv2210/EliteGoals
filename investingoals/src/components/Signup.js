@@ -141,7 +141,7 @@ const Signup = () => {
             </div>
 
             <div className="col-12 mt-2 mb-2">
-              <input type="checkbox"  required/> <a href="">Agree to terms and condition.</a>
+              <input type="checkbox"  required/> <a href="/">Agree to terms and condition.</a>
             </div>
 
             <div className="col-12 mt-2 mb-2">
