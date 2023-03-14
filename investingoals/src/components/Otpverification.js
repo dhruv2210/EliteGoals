@@ -9,6 +9,7 @@ import { auth } from "./firebase.config";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { toast, Toaster } from "react-hot-toast";
 import Signup from "./Signup";
+import { useStateValue } from "../StateProvider";
 
 
 const Otpverification= () => {
@@ -17,6 +18,7 @@ const Otpverification= () => {
   const [loading, setLoading] = useState(false);
   const [showOTP, setShowOTP] = useState(false);
   const [user, setUser] = useState(null);
+  const [{ phone }, dispatch] = useStateValue();
 
   function onCaptchVerify() {
     if (!window.recaptchaVerifier) {
@@ -32,6 +34,17 @@ const Otpverification= () => {
         auth
       );
     }
+  }
+
+  function oncc(){
+    onSignup();
+    
+    dispatch({
+      type: 'ADD_TO_PHONE',
+      item: {
+        ph:ph
+      }
+    })
   }
 
   function onSignup() {
@@ -181,7 +194,7 @@ const Otpverification= () => {
                 {"\u00a0\u00a0\u00a0\u00a0"}
                 {"\u00a0\u00a0"}
                 <button
-                  onClick={onSignup}
+                  onClick={oncc}
                   className="btn btn-outline-light"
                   >
                   <span>Send code via SMS</span>

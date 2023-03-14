@@ -37,7 +37,7 @@ const Profile = () => {
     const getUser = async () => {
       const response = await axios.get('/profile');
       console.log("Ayuuuuuuuuuuuuuuuuuuuuuuuuuu mayuuuuuuuuuuuuuuuu",response)
-      setUserData(response.data);
+       setUserData(response.data);
     }
     getUser();
   }, []);

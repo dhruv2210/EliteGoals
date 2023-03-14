@@ -9,7 +9,7 @@ let payment_count=1;
 
 const GoalList = () => {
   const [{ goal },dispatch] = useStateValue();
-  console.log('goallist>>>', goal);
+  // console.log('goallist>>>', goal);
   const history = useNavigate();
  
   const [userData, setUserData] = useState("");
@@ -42,7 +42,7 @@ const GoalList = () => {
       history('/Login');
     }
   }
-  console.log(".........................",userp);
+  // console.log(".........................",userp);
 
   // useEffect(() => 
   // {
@@ -56,12 +56,12 @@ const GoalList = () => {
   //   fetchdata();    
   // }, []);
 
-  useEffect(() => 
-  {
-    console.log("///////////",userp) ;
-  }, [userp]);
+  // useEffect(() => 
+  // {
+  //   // console.log("///////////",userp) ;
+  // }, []);
 
-  console.log("this is your user------",goal1);
+  // console.log("this is your user------",goal1);
   useEffect(() => 
   {
     callProfilePage(); 
@@ -183,13 +183,14 @@ const __DEV__ = document.domain === 'localhost'
        const nextdate=new Date(Date.now()+day)
 
        alert(date)
+       const uid = userp._id;
        const data =  fetch('/payment', 
           { method: 'POST',
             headers: {
                     "Content-Type": "application/json"
                   },
             body: JSON.stringify({
-                  payment_count,payment_id,monthlypricee,duration,date,nextdate,id
+                  payment_count,payment_id,monthlypricee,duration,date,nextdate,gid:id,uid
             })}).then((t) =>
             t.json()
           )
