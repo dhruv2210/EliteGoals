@@ -133,7 +133,6 @@ router.post('/contact', authenticate, async (req, res) => {
 
     if (userContact) {
       const userMessage = await userContact.addMessage(fname, email, phone, message);
-      console.log("Contact")
       res.status(201).json({ message: "user contact successfully" });
     }
 
@@ -167,27 +166,59 @@ router.get("/logout", (req, res) => {
 });
 
 
+// router.post('/payment', authenticate, async (req, res) => {
+
+//   try {
+//     console.log(req.body);
+//     const { payment_count, payment_id, monthlypricee, duration, date, id } = req.body;
+//     let f;
+//     let uu;
+//     const userPay = await Register.findOne({ _id: req.userID });
+//     let data;
+//     userPay.goals.map((item) => {
+//       const userG = Buffer.from(item._id);
+//       const i = Buffer.from(id);
+
+//       f = Buffer.compare(userG, i);
+//       if (!f) {
+//         uu = item;
+//         uu.payment.push(req.body);
+//         data = userG;
+//       }
+//     })
+//     // console.log("*******************", uu);
+//     // console.log(uu);
+//     // console.log(data);
+//     await userPay.save();
+//     res.status(201).json({ message: "user payment successfully added to mongodb" });
+
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
+
 router.post('/payment', authenticate, async (req, res) => {
 
   try {
     console.log(req.body);
-    const { payment_count, payment_id, monthlypricee, duration, date, nextdate, id } = req.body;
+    const { payment_count, payment_id, monthlypricee, duration, date, gid, uid } = req.body;
     let f;
     let uu;
-    const userPay = await Register.findOne({ _id: req.userID });
+    const userPay = await Register.findOne({_id:uid});
     let data;
 
     userPay.goals.map((item) => {
       const userG = Buffer.from(item._id);
       const i = Buffer.from(id);
-
-      f = Buffer.compare(userG, i);
-      if (!f) {
-        uu = item;
+       f=Buffer.compare(userG,i)
+       if(!f){
+        uu=item;
         uu.payment.push(req.body);
-        data = userG;
-      }
-    })
+        data=userG;
+       }
+
+      })
+  
     await userPay.save();
     res.status(201).json({ message: "user payment successfully added to mongodb" });
 
@@ -195,5 +226,6 @@ router.post('/payment', authenticate, async (req, res) => {
     console.log(error);
   }
 });
+
 
 module.exports = router;

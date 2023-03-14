@@ -1,14 +1,13 @@
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-
-
+import { useStateValue } from '../StateProvider';
 
 const Signup = () => {
-
+  const [{ ph }, dispatch] = useStateValue();
+  console.log("aaaaaaaaaaaaa",ph.ph)
   const history = useNavigate();
   const [user, setUser] = useState({
-    fname: "", lname: "", dob: "", email: "", phone: "", aadharNumber: "", pyin: "", pswd: "", cpswd: ""
+    fname: "", lname: "", dob: "", email: "", phone: ph.ph, aadharNumber: "", pyin: "", pswd: "", cpswd: ""
   });
   let name, value;
 
@@ -45,6 +44,7 @@ const Signup = () => {
       history("/login");
     }
   }
+  
   return (
     <div>
       
@@ -75,10 +75,11 @@ const Signup = () => {
             <div className="col-6 mt-3 mb-2">
               <input className="form-control"
                 type="tel" name="phone"
-                value={user.phone}
+                value={ph.ph}
                 onChange={handleInputs}
                 placeholder="Mobile Number" required="" pattern="[6789][0-9]{9}"
                 title="Please enter valid phone number"
+                readOnly={true}
               />
             </div>
 

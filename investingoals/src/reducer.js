@@ -1,6 +1,7 @@
 export const initialState = {
     basket: [],
     goal:[],
+    ph:0,
     user: null,
     // user: JSON.parse(localStorage.getItem("user")),
     // address: {},
@@ -18,6 +19,10 @@ export const initialState = {
           ...state,
           basket: [action.item],
         };
+      case "ADD_TO_PHONE":
+          return {
+            ph: action.item,
+          };
         case "ADD_TO_GOAL":
           return {
             ...state,
