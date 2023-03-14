@@ -24,9 +24,7 @@ let obtainedPoints=0;
         obtainedPoints +=10;
     }
     else{
-
         obtainedPoints +=5;
-
     }
 }
 

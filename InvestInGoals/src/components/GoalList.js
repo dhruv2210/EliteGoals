@@ -2,47 +2,72 @@ import React, { useState ,useEffect} from 'react';
 import { useStateValue } from '../StateProvider';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
+const date1 = require('date-and-time')
 // import { count } from '../../../mernbackend/src/models/Products';
   
 let flag=false;
 let payment_count=1;
+let paymentsMissed=0;
+let dbdate;
 
 const GoalList = () => {
+  const [userp, setUserp] = useState([]);
   const [{ goal },dispatch] = useStateValue();
-  console.log('goallist>>>', goal);
+  // console.log('goallist>>>', goal);
   const history = useNavigate();
  
   const [userData, setUserData] = useState("");
   const [goal1, setGoal] = useState([]);
-  const [userp, setUserp] = useState([]);
+  // useEffect(() => 
+  // {
+  //   callProfilePage(); 
+  // }, []);
+  // const getUser = async () => {
+  //   const response = await axios.get('/profile');
+  //   console.log("Ayuuuuuuuuuuuuuuuuuuuuuuuuuu mayuuuuuuuuuuuuuuuu",response)
+  //   setUserData(response.data);
+  //   setGoal(response.data.goals); 
+  //   setUserp(response.data);
+  // }
+  // useEffect(() => {
+    //   getUser();
+    // }, []);
+    
+    // callProfilePage();
+    let count=0;
 
   const callProfilePage = async () => {
     try {
-      const res = await fetch('/profile', {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },      
-        credentials: "include"
-      });
+      count++;
+      if(count<5){
+        const res = await fetch('/profile', {
+          method: "GET",
+          headers: {
+            "Content-Type": "Application/json"
+          },      
+          credentials: "include"
+        });
 
-      const data = await res.json();
-      setUserData(data);
-      setGoal(data.goals); 
-      setUserp(data);
-      
-      
-      if (!res.status === 200) {
-        const error = new Error(res.error);
-        throw error;
+        const data = await res.json();
+        console.log(data);
+        setUserData(data);
+        setGoal(data.goals); 
+        setUserp(data);
+
+        if (!res.status === 200) {
+          const error = new Error(res.error);
+          throw error;
+        }
       }
+   
+     
     } catch (error) {
       console.log(error);
       history('/Login');
     }
   }
-  console.log(".........................",userp);
+
+  // console.log(".........................",userp);
 
   // useEffect(() => 
   // {
@@ -58,14 +83,15 @@ const GoalList = () => {
 
   useEffect(() => 
   {
-    console.log("///////////",userp) ;
-  }, [userp]);
-
-  console.log("this is your user------",goal1);
-  useEffect(() => 
-  {
     callProfilePage(); 
-  }, [userp]);
+  }, []);
+
+  // console.log("this is your user------",goal1);
+
+  // setInterval(() => {
+  //   callProfilePage();
+  // }, 1000)
+
 
  const removeFromGOal = (e,id)=>{
     e.preventDefault();
@@ -125,7 +151,6 @@ const __DEV__ = document.domain === 'localhost'
      return
    }
 
-
    const  monthlypricee = prod.monthlyprice;
    const  duration = prod.duration;
    const id=prod._id;
@@ -142,8 +167,9 @@ const __DEV__ = document.domain === 'localhost'
    )
 
    console.log("miaaaaaaaaaaaaaaaaaaaaaaaa")
-   callProfilePage();
+  //  callProfilePage();
    const options = {
+    
      key: 'rzp_test_cMV1GfmpfhYe5T',
      currency: data.currency,
      amount: data.amount.toString(),
@@ -151,12 +177,30 @@ const __DEV__ = document.domain === 'localhost'
      name: 'Installment',
      description: 'Thank you for nothing.',
      image: 'http://localhost:5000/logo.svg',
-     handler: function (response) {
+     handler: async function (response) {
+      // await callProfilePage(); 
        alert(response.razorpay_payment_id)
        alert(response.razorpay_order_id)
        alert(response.razorpay_signature)
+       const date=new Date(Date.now())
+       var day =  60 * 60 * 24 * 1000;
+       const nextdate=new Date(Date.now()+((payment_count*30)*day))
        const payment_id=response.razorpay_payment_id
        flag=true  
+       const data = await fetch('/payment', 
+          { method: 'POST',
+            headers: {
+                    "Content-Type": "application/json"
+                  },
+            body: JSON.stringify({
+                  payment_count,payment_id,monthlypricee,duration,date,nextdate,id
+            })
+          })
+          const result = await data.json();
+          if(result){
+           callProfilePage();
+
+          }
    console.log("______________",userp)
     if(userp.goals==undefined){
       payment_count=1;
@@ -165,9 +209,13 @@ const __DEV__ = document.domain === 'localhost'
       userp.goals.map((pp)=>{
            if(pp._id==id){
             const pay=pp.payment;     
-            payment_count=pay.length+1;  
+            payment_count=pay.length+1;
+            const a=pay.length-1;
             console.log("AAAAAAAAAAAAAAAAAAA",payment_count)
-            console.log("ffffffffffffffffffff",pp.payment) 
+            console.log("xx",pp.payment) 
+            // console.log("xx",pp.payment[a]) 
+            // console.log("xx",pp.payment[a].nextdate) 
+            // dbdate=pp.payment[a].nextdate
            }
       })
     }     
@@ -175,24 +223,27 @@ const __DEV__ = document.domain === 'localhost'
    //  console.log("4444444444444444444444444444444444",userp.goals)
           
        alert(payment_count)
-
+      
        //30 day duration
-       var day = 30 * 60 * 60 * 24 * 1000;
+      //  a=a+30;
+       
+      //  const dd=date
+      //  console.log("xxxxxxxxx",date)
+      //  const dd = date1.format(date,'YYYY/MM/DD');
+      //  const value = date1.format(dbdate,'YYYY/MM/DD');
 
-       const date=new Date(Date.now())
-       const nextdate=new Date(Date.now()+day)
+      //  console.log("xxxxxxxxx",dd)
+      //   console.log("xxxxxxxxx",value)
+      // if(date< dbdate){
+       
+      //   ++paymentsMissed
+      // }
 
+      // console.log("xxxxxxxxxxxxxx",paymentsMissed);
+
+       
        alert(date)
-       const data =  fetch('/payment', 
-          { method: 'POST',
-            headers: {
-                    "Content-Type": "application/json"
-                  },
-            body: JSON.stringify({
-                  payment_count,payment_id,monthlypricee,duration,date,nextdate,id
-            })}).then((t) =>
-            t.json()
-          )
+        // window.location.reload();
      },
      prefill: {
        name,
@@ -202,8 +253,11 @@ const __DEV__ = document.domain === 'localhost'
    }
    const paymentObject = new window.Razorpay(options)
    paymentObject.open()
-
- }}> Payment </button>
+  //  callProfilePage();
+  //  callProfilePage();
+  //  callProfilePage();
+ }
+ }> Payment </button>
               <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
               <br/>     
             </div>
