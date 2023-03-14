@@ -223,7 +223,7 @@ const __DEV__ = document.domain === 'localhost'
    //  console.log("4444444444444444444444444444444444",userp.goals)
           
        alert(payment_count)
-      
+       
        //30 day duration
       //  a=a+30;
        
