@@ -53,7 +53,7 @@ const Profile = () => {
       <div class="page-content page-container" id="page-content">
         <div class="padding">
           <div class="container d-flex justify-content-center">
-            <div class="col-xl-8 col-md-12">
+            <div class="col-xl-10 col-md-12">
               <div class="card user-card-full">
                 <div class="row m-l-0 m-r-0">
                   <div class="col-sm-4 bg-c-lite-green user-profile">
@@ -69,8 +69,11 @@ const Profile = () => {
                   </div>
                   <div class="col-sm-8">
                     <div class="card-block">
+                      <br/>
                       <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h5>
+                        <br/>
                       <div class="row">
+                        <br/>
                         <div class="col-sm-6">
                           <p class="m-b-10 f-w-600">Email</p>
                           <h4 class="text-bold f-w-400">{userData.email}</h4>
@@ -80,6 +83,7 @@ const Profile = () => {
                           <h4 class="text   f-w-400">{userData.phone}</h4>
                         </div>
                       </div>
+                      <br/>
                       {/* <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> */}
                       <div class="row">
                         <div class="col-sm-6">
