@@ -1,8 +1,9 @@
 import "./Goals.css";
 import moment from "moment";
-import React, { useState ,useEffect} from 'react';
+import React, { useState ,useEffect,useContext} from 'react';
 import { useStateValue } from '../StateProvider';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from "../App";
 const date1 = require('date-and-time')
 let flag=false;
 let payment_count=1;
@@ -13,6 +14,7 @@ let dur=0;
 let dbdate;
 
 const GoalList = () => {
+  const { state, dispatch1 } = useContext(UserContext);
   const [userp, setUserp] = useState([]);
   const [{ goal },dispatch] = useStateValue();
   // console.log('goallist>>>', goal);
@@ -174,7 +176,11 @@ const __DEV__ = document.domain === 'localhost'
                   {/* <button type="submit" className="goalbutton btn btn-outline-light" onClick={""}> Logout </button> */}
                   <br/>
                   <br/>
-                  <button type="submit" className="goalbutton btn btn-outline-light" 
+                  {function RenderMenu(){
+    if (state) {
+      return <>
+       
+       <button type="submit" className="goalbutton btn btn-outline-light" 
              		onClick={ async function displayRazorpay() {
                 
    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
@@ -396,8 +402,26 @@ console.log(obtainedPoints)
   //  callProfilePage();
   //  callProfilePage();
  }
- }> Payment </button>
-              {/* <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button> */}
+                    }> Payment </button>
+        
+
+      </>
+    }
+    else {
+      return (
+        <>
+         <button type="submit" className="btn btn-white" onClick={""} > Order Now!</button>
+            <div className="container d-flex justify-content-between align-items-center">
+             
+            </div>
+        
+        </>
+      )
+    }
+  }
+}
+                  
+              
               <br/>  
                   <br/>
                   <br/>
