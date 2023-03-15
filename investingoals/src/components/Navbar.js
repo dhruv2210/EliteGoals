@@ -29,7 +29,7 @@ function Navbar() {
                 </li>
                 <li>
                   <NavLink className="" to="/Goals">
-                    Goals
+                    Products
                   </NavLink>
                 </li>
                 <li>
