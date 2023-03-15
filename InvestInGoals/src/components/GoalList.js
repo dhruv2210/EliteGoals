@@ -1,9 +1,9 @@
+import "./Goals.css";
 import moment from "moment";
 import React, { useState ,useEffect} from 'react';
 import { useStateValue } from '../StateProvider';
 import { useNavigate } from 'react-router-dom';
 const date1 = require('date-and-time')
-  
 let flag=false;
 let payment_count=1;
 let paymentsMiss=0;
@@ -87,19 +87,38 @@ const __DEV__ = document.domain === 'localhost'
 
   return (
     <div>
+      <section className="hero-section inner-page">
+
+
+<div className="container">
+  <div className="row align-items-center">
+    <div className="col-12">
+      <div className="row justify-content-center">
+        <div className="col-md-7 text-center hero-text">
+          <h1 data-aos="fade-up" data-aos-delay="0">
+            Goal List
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
       <br></br>
-      <br></br>
-      <br></br> 
+      
       {
         goal1.map((prod,i=0) => (
-        <span className="rowwise" key={i}>
-          <div className="col-md-12">
+        <span className="rowwise-side" key={i}>
+          <div className="col-md-11 products">
             <div className="step">
+              <div>
             <img id='goalsimg'
                     src={prod.imgURL}
                     alt="Image"
                     className="img-fluid"
                   />
+              </div>
+              <div>
               <h4><b>Product:</b> {prod.title}</h4>             
               <h4><b>Price:</b> {prod.price}/-</h4>
               {/* <h4>{prod.price75}/-</h4> */}
@@ -334,9 +353,11 @@ console.log(obtainedPoints)
               <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
               <br/>     
             </div>
-          </div>    
+          </div> 
+          </div>   
         </span>
    ))}
+   
    </div>
   )
 }

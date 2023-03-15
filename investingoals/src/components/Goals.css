@@ -9,6 +9,12 @@
     /* background-color: black; */
 
 }
+.rowwise-side{
+    display: inline-block;
+    flex-direction: column;
+    /* background-color: black; */
+
+}
 .top{
     text-align: right;
     margin-right: 1.5rem;
