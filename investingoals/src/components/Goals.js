@@ -29,11 +29,10 @@ function Home() {
     
     products &&
     products?.data.map((product,i) => (
+      
      
        <div className='products rowwise'>
-         <br />
-      <br />
-      <br />
+     
       <span className="rowwise" key={i}>
         
             <div className="col-md-12" >
