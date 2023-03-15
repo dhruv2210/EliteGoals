@@ -132,7 +132,8 @@ const __DEV__ = document.domain === 'localhost'
               </div>
                       </div>
                       
-                      <h3 class="f-w-600">{prod.title}</h3>
+                      <h3 class="f-w-600 black">{prod.title}</h3>
+                          {/* <h4 class="text-bold f-w-400">{prod.title}</h4> */}
                       {/* <p>Web Designer</p> */}
                       <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                     </div>
@@ -144,13 +145,14 @@ const __DEV__ = document.domain === 'localhost'
                         <br/>
                       <div class="row">
                         <br/>
-                        <div class="col-sm-6">
-                          <p class="m-b-10 f-w-600">Product</p>
-                          <h4 class="text-bold f-w-400">{prod.title}</h4>
-                        </div>
+                       
                         <div class="col-sm-6">
                           <p class="m-b-10 f-w-600">Price</p>
-                          <h4 class="text   f-w-400">+{prod.price}</h4>
+                          <h4 class="text   f-w-400">{prod.price}</h4>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Installments</p>
+                          <h4 class="text f-w-400">{prod.monthlyprice}</h4>
                         </div>
                       </div>
                       <br/>
@@ -160,10 +162,7 @@ const __DEV__ = document.domain === 'localhost'
                           <p class="m-b-10 f-w-600">Duration</p>
                           <h4 class="text f-w-400">{prod.duration} </h4>
                         </div>
-                        <div class="col-sm-6">
-                          <p class="m-b-10 f-w-600">Installments</p>
-                          <h4 class="text f-w-400">{prod.monthlyprice}</h4>
-                        </div>
+                        
                         <div class="col-sm-6">
                           <p class="m-b-10 f-w-600">Remaining Installments</p>
                           <h4 class="text f-w-400">{prod.duration-payment_count}</h4>
@@ -173,6 +172,8 @@ const __DEV__ = document.domain === 'localhost'
                     </div>
                     <div className="col-12 mt-2 mb-2">
                   {/* <button type="submit" className="goalbutton btn btn-outline-light" onClick={""}> Logout </button> */}
+                  <br/>
+                  <br/>
                   <button type="submit" className="goalbutton btn btn-outline-light" 
              		onClick={ async function displayRazorpay() {
                 
@@ -396,7 +397,7 @@ console.log(obtainedPoints)
   //  callProfilePage();
  }
  }> Payment </button>
-              <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
+              {/* <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button> */}
               <br/>  
                   <br/>
                   <br/>
