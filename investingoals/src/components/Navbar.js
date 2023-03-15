@@ -33,6 +33,11 @@ function Navbar() {
                   </NavLink>
                 </li>
                 <li>
+                  <NavLink className="" to="/GoalList">
+                    Goal List
+                  </NavLink>
+                </li>
+                <li>
                 <NavLink className="" to="/AboutUs">
                       AboutUs
                     </NavLink>
@@ -47,11 +52,6 @@ function Navbar() {
                     Add Product
                   </NavLink>
                 </li> */}
-                <li>
-                  <NavLink className="" to="/GoalList">
-                    Goal List
-                  </NavLink>
-                </li>
                 <li>
                   <NavLink className="" to="/Profile">
                     Profile
@@ -92,6 +92,11 @@ function Navbar() {
                     </NavLink>
                   </li>
                   <li>
+                    <NavLink className="" to="/GoalList">
+                      Goal List
+                    </NavLink>
+                  </li>
+                  <li>
                   <NavLink className="" to="/AboutUs">
                       AboutUs
                     </NavLink>
@@ -106,11 +111,6 @@ function Navbar() {
                       Add Product
                     </NavLink>
                   </li> */}
-                  <li>
-                    <NavLink className="" to="/GoalList">
-                      Goal List
-                    </NavLink>
-                  </li>
                   <li>
                     <NavLink className="" to="/Login">
                       Login/Signup

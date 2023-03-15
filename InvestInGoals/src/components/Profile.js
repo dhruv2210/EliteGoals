@@ -80,7 +80,7 @@ const Profile = () => {
                         </div>
                         <div class="col-sm-6">
                           <p class="m-b-10 f-w-600">Phone</p>
-                          <h4 class="text   f-w-400">{userData.phone}</h4>
+                          <h4 class="text   f-w-400">+{userData.phone}</h4>
                         </div>
                       </div>
                       <br/>
