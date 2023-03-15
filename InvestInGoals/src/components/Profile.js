@@ -119,44 +119,7 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      {/* <div>
-        <span className="rowwise">
-          <div className="col-md-12" >
-            <div className="steps">
-
-              <form id="enterinfo" className="row form-control-lg">
-                <div className="col-12 mt-3 mb-2">
-                  <h3><b>Name: </b>{"\u00a0\u00a0\u00a0\u00a0"}{userData.fname}  {userData.lname}</h3>
-                </div>
-
-                <div className="col-md-6 mt-2 mb-2">
-                  <h3><b>Email: </b>{"\u00a0\u00a0\u00a0\u00a0\u00a0"}{userData.email}</h3>
-                </div>
-                <div className="col-md-6 mt-2 mb-2">
-                  <h3><b>Date Of Birth: </b>{"\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0"}{userData.dob}   </h3>
-
-                </div>
-
-                <div className="col-md-6 mt-2 mb-2">
-                  <h3><b>Phone: </b>{"\u00a0\u00a0\u00a0"}{userData.phone}</h3>
-                </div>
-                <div className="col-md-6 mt-2 mb-2">
-                  <h3><b>Aadhar Number: </b>{"\u00a0\u00a0\u00a0\u00a0"}{userData.aadharNumber}</h3>
-                </div>
-
-
-                <div className=" col-12 mt-2 mb-2 ">
-
-                </div>
-
-
-                
-              </form>
-
-            </div>
-          </div>
-        </span>
-      </div> */}
+    
 
 
     </>

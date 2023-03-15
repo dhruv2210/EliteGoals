@@ -25,8 +25,7 @@ function Home() {
   //console.log('goal>>>>', basket.length);
 
   return (
-    
-    
+ 
     products &&
     products?.data.map((product,i) => (
       
@@ -68,7 +67,9 @@ function Home() {
       </span>
     </div>
     ))
+    
   );
+              
 }
 export default Home;
 

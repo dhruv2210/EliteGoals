@@ -108,26 +108,72 @@ const __DEV__ = document.domain === 'localhost'
       
       {
         goal1.map((prod,i=0) => (
-        <span className="rowwise-side" key={i}>
-          <div className="col-md-11 products">
-            <div className="step">
-              <div>
+
+
+
+        <span className="row" key={i}>
+        <div class="page-content page-container" id="page-content">
+        <div class="padding">
+          <div class="container d-flex justify-content-center">
+            <div class="col-xl-12 col-md-12">
+              <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                  <div class="col-sm-4 bg-c-lite-white user-profile">
+                    <div class="card-block text-center text-white">
+                      <div class="m-b-25">
+                        <br/>
+                        {/* <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image" /> */}
+                        <div>
             <img id='goalsimg'
                     src={prod.imgURL}
                     alt="Image"
                     className="img-fluid"
                   />
               </div>
-              <div>
-              <h4><b>Product:</b> {prod.title}</h4>             
-              <h4><b>Price:</b> {prod.price}/-</h4>
-              {/* <h4>{prod.price75}/-</h4> */}
-          
-              <h4><b>Duration: </b>{prod.duration}</h4>
-              <h4><b>Installment: </b> {prod.monthlyprice}/-</h4>
-              <h5>Remaining Installments: {prod.duration-payment_count}</h5>
-        
-              <button type="submit" className="goalbutton btn btn-outline-light" 
+                      </div>
+                      
+                      <h3 class="f-w-600">{prod.title}</h3>
+                      {/* <p>Web Designer</p> */}
+                      <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
+                    </div>
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-block">
+                      <br/>
+                      <h5 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h5>
+                        <br/>
+                      <div class="row">
+                        <br/>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Product</p>
+                          <h4 class="text-bold f-w-400">{prod.title}</h4>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Price</p>
+                          <h4 class="text   f-w-400">+{prod.price}</h4>
+                        </div>
+                      </div>
+                      <br/>
+                      {/* <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> */}
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Duration</p>
+                          <h4 class="text f-w-400">{prod.duration} </h4>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Installments</p>
+                          <h4 class="text f-w-400">{prod.monthlyprice}</h4>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Remaining Installments</p>
+                          <h4 class="text f-w-400">{prod.duration-payment_count}</h4>
+                        </div>
+                      </div>
+               
+                    </div>
+                    <div className="col-12 mt-2 mb-2">
+                  {/* <button type="submit" className="goalbutton btn btn-outline-light" onClick={""}> Logout </button> */}
+                  <button type="submit" className="goalbutton btn btn-outline-light" 
              		onClick={ async function displayRazorpay() {
                 
    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
@@ -351,10 +397,39 @@ console.log(obtainedPoints)
  }
  }> Payment </button>
               <button type="submit" className="btn btn-white" onClick={(e)=>removeFromGOal(e,prod._id)} > Remove </button>
-              <br/>     
+              <br/>  
+                  <br/>
+                  <br/>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          {/* <div className="col-md-11 products">
+            <div className="step">
+              <div>
+            <img id='goalsimg'
+                    src={prod.imgURL}
+                    alt="Image"
+                    className="img-fluid"
+                  />
+              </div>
+              <div>
+              <h4><b>Product:</b> {prod.title}</h4>             
+              <h4><b>Price:</b> {prod.price}/-</h4>
+              <h4>{prod.price75}/-</h4>
+          
+              <h4><b>Duration: </b>{prod.duration}</h4>
+              <h4><b>Installment: </b> {prod.monthlyprice}/-</h4>
+              <h5>Remaining Installments: {prod.duration-payment_count}</h5>
+        
+                
             </div>
           </div> 
-          </div>   
+          </div>    */}
         </span>
    ))}
    
@@ -364,123 +439,4 @@ console.log(obtainedPoints)
 export default GoalList
 
 
-// import React,{useEffect} from 'react'
-// import { useDispatch,useSelector } from 'react-redux';
-// import { addToCart,removeFromCart } from '../components/cartAction';
-// import { Link } from 'react-router-dom';
-// import MessageBox from "../components/MessageBox";
-// // import "../styles/Cart.css"
-// import CancelIcon from '@material-ui/icons/Cancel';
 
-
-// const Cart = (props) => {
-
-//     const productID = props.match.params.id;
-//     const qty = props.location.search ? 
-//         Number(props.location.search.split('=')[1])
-//         : 1;
-
-//     const cart = useSelector((state) => state.cart);
-//     const { cartItems, error } = cart;
-
-//     console.log(productID);
-
-//     const dispatch = useDispatch();
-
-//     useEffect(() => {
-//         if(productID){
-//             dispatch(addToCart(productID,qty));
-//         }
-//     }, [dispatch, productID, qty])
-
-
-//     const removeProduct = (id) =>{
-//         dispatch(removeFromCart(id));
-//     }
-
-//     const checkOut =() =>{
-//         props.history.push('/shipping');
-//     }
-
-//     return (
-//         <div>
-//             <Link to="/" className="back-res">Back to home</Link>
-
-//             <div className="row-container">
-//                 <div className="col-4">
-//                     <h1>Shopping Cart</h1>
-//                     {cartItems.length === 0 ? (
-//                         <MessageBox>
-//                             Cart is empty. <Link to="/">Go Shopping</Link>
-//                         </MessageBox>
-//                     ) : (
-//                         <ul>
-//                             {
-//                                 cartItems.map((item)=>(
-//                                     <li key={item.product}>
-//                                         <div className="row1">
-//                                             <div className="small">
-//                                                 <img src={item.image}
-//                                                 alt= ""
-//                                                 ></img>
-//                                             </div>
-
-//                                             <div className="min-30">
-//                                                 <Link to={`/products/product/${item.product}`}>{item.name}</Link>
-//                                             </div>
-//                                             <div className="qty-select">
-//                                                 <select value={item.qty} 
-//                                                 onChange={(e) => 
-//                                                 dispatch(addToCart(item.product,Number(e.target.value)))
-//                                                 }>
-//                                                 {
-//                                                     [...Array(item.stock).keys()].map((x)=>(
-//                                                         <option value={x+1}>{x+1}</option>
-//                                                     ))
-//                                                 }
-//                                                 </select>
-//                                             </div>
-//                                             <p>${item.price * item.qty}</p>
-//                                             <div className="remove-btn">
-//                                                 <button type="button" onClick={() => removeProduct(item.product)}>
-//                                                     <CancelIcon/>
-//                                                 </button>
-//                                             </div>
-//                                         </div>
-//                                     </li>
-//                                 ))
-//                             }
-//                         </ul>
-//                     )}
-//                 </div>
-
-//                 <div className="col-5">
-//                     <div className="card card-body">
-//                         <ul>
-//                             <li>
-//                                 <p>
-//                                     Subtotal ({cartItems.reduce((a, c) => {
-//                                         return a + c.qty;
-//                                     }, 0)} items) : 
-//                                 </p>
-//                                 <p className="price">$ {cartItems.reduce((a, c) => a + c.price * c.qty, 0)}</p>
-//                             </li>
-//                             <li>
-//                                 <button type="button" onClick={checkOut}
-//                                 className="checkout-btn"
-//                                 disabled={cartItems.length === 0}
-//                                 >
-//                                     Proceed to Checkout
-//                                 </button>
-//                             </li>
-//                         </ul>
-
-//                     </div>
-//                 </div>
-//             </div>
-
-//         </div>
-        
-//     )
-// }
-// export default Cart

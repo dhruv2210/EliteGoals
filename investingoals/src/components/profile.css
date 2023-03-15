@@ -47,6 +47,10 @@
         background: -webkit-gradient(linear, left top, right top, from(#2d71a1), to(#2d71a1));
     background: linear-gradient(-45deg, #1391a5, #274685);
 }
+.bg-c-lite-white {
+        background: -webkit-gradient(linear, left top, right top, from(#2d71a1), to(#2d71a1));
+    background: linear-gradient(-45deg, #ffffff, #ffffff);
+}
 
 .user-profile {
     padding: 20px 0;
