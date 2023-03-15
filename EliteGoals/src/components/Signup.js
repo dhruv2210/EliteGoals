@@ -112,6 +112,16 @@ const Signup = () => {
               />
             </div>
 
+            <div className="col-12 mt-3 mb-2">
+              <input className="form-control"
+                type="textarea" name="address"
+                value={user.address}
+                onChange={handleInputs}
+                placeholder="Address"
+                required
+              />
+            </div>
+
             <div className="col-md-12 mt-2 mb-2">
               <input
                 className="form-control"
