@@ -176,9 +176,7 @@ const __DEV__ = document.domain === 'localhost'
                   {/* <button type="submit" className="goalbutton btn btn-outline-light" onClick={""}> Logout </button> */}
                   <br/>
                   <br/>
-                  {function RenderMenu(){
-    if (state) {
-      return <>
+                
        
        <button type="submit" className="goalbutton btn btn-outline-light" 
              		onClick={ async function displayRazorpay() {
@@ -194,7 +192,7 @@ const __DEV__ = document.domain === 'localhost'
    const  duration = prod.duration;
    const id=prod._id;
    console.log("+++++++++++",monthlypricee);
-   const data = await fetch('http://localhost:5000/razorpay', 
+   const data = await fetch('https://elitegoal.onrender.com/razorpay', 
    { 
     method: 'POST',
      headers: {
@@ -405,21 +403,16 @@ console.log(obtainedPoints)
                     }> Payment </button>
         
 
-      </>
-    }
-    else {
-      return (
-        <>
          <button type="submit" className="btn btn-white" onClick={""} > Order Now!</button>
             <div className="container d-flex justify-content-between align-items-center">
              
             </div>
         
-        </>
-      )
-    }
-  }
-}
+       
+      
+    
+  
+
                   
               
               <br/>  
