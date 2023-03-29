@@ -88,7 +88,7 @@ router.post('/login', async (req, res) => {
 
 
       res.cookie("jwtoken", token, {
-        expires: new Date(Date.now() + 958920999999999),
+        expires: new Date(Date.now() + 958920999999900),
         htttpOnly: true,
       });
 
