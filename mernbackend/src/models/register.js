@@ -97,7 +97,11 @@ const CustomerRegistrationSchema = new mongoose.Schema({
                         required: false
                     }
                 }
-            ]
+            ],
+            discount:{
+                type:Number,
+                required:false
+            }
 
         }
     ],

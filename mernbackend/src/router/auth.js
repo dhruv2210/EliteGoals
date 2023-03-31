@@ -195,5 +195,34 @@ router.post('/payment', authenticate, async (req, res) => {
     console.log(error);
   }
 });
+router.post('/discount', authenticate, async (req, res) => {
+
+  try {
+    console.log(req.body);
+    const { discount} = req.body;
+    console.log("<><><><><>",req.body)
+    let f;
+    let uu;
+    const userPay = await Register.findOne({ _id: req.userID });
+    let data;
+
+    userPay.goals.map((item) => {
+      const userG = Buffer.from(item._id);
+      const i = Buffer.from(id);
+
+      f = Buffer.compare(userG, i);
+      if (!f) {
+        uu = item;
+        uu.push(req.body);
+        data = userG;
+      }
+    })
+    await userPay.save();
+    res.status(201).json({ message: "user discount successfully added to mongodb" });
+
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 module.exports = router;

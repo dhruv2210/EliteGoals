@@ -483,17 +483,20 @@ import { useStateValue } from '../StateProvider';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../App";
 const date1 = require('date-and-time')
-let flag=false;
+
 let payment_count=1;
 let paymentsMiss=0;
+let flag=[false,false,false,false,false,false];
 let remainingPayment=0;
 let dur=0;
+
 
 let dbdate;
 
 const GoalList = () => {
   const { state, dispatch1 } = useContext(UserContext);
   const [userp, setUserp] = useState([]);
+  const [discount, setdiscount] = useState(0);
   const [{ goal },dispatch] = useStateValue();
   // console.log('goallist>>>', goal);
   const history = useNavigate();
@@ -587,9 +590,8 @@ const __DEV__ = document.domain === 'localhost'
       <br></br>
       
       {
+
         goal1.map((prod,i=0) => (
-
-
 
         <span className="row" key={i}>
         <div class="page-content page-container" id="page-content">
@@ -646,6 +648,7 @@ const __DEV__ = document.domain === 'localhost'
                         <div class="col-sm-6">
                           <p class="m-b-10 f-w-600">Remaining Installments</p>
                           <h4 class="text f-w-400">{  
+                      
                            prod.payment[prod.payment.length-1]==undefined? prod.duration: prod.duration-prod.payment[prod.payment.length-1]?.payment_count
                             }</h4>
                           {/* <h4 class="text f-w-400">{Object.values(prod.payment).map} </h4>
@@ -673,9 +676,11 @@ const __DEV__ = document.domain === 'localhost'
                   {/* <button type="submit" className="goalbutton btn btn-outline-light" onClick={""}> Logout </button> */}
                   <br/>
                   <br/>
-                
-       
-       <button type="submit" className="goalbutton btn btn-outline-light" 
+                 
+          {      
+            
+
+            (prod.duration-prod.payment[prod.payment.length-1]?.payment_count)!=0?<button type="submit" className="goalbutton btn btn-outline-light" 
              		onClick={ async function displayRazorpay() {
                 
    const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
@@ -684,7 +689,7 @@ const __DEV__ = document.domain === 'localhost'
      alert('Razorpay SDK failed to load. Are you online?')
      return
    }
-
+ 
    const  monthlypricee = prod.monthlyprice;
    const  duration = prod.duration;
    const id=prod._id;
@@ -704,7 +709,7 @@ const __DEV__ = document.domain === 'localhost'
    )
 
    console.log("miaaaaaaaaaaaaaaaaaaaaaaaa")
-  //  callProfilePage();
+
    const options = {
 
      key: 'rzp_test_cMV1GfmpfhYe5T',
@@ -762,7 +767,7 @@ const __DEV__ = document.domain === 'localhost'
       console.log("++++",paymentsMiss)
 
  const payment_id=response.razorpay_payment_id
-       flag=true  
+    
        const data = await fetch('/payment', 
           { method: 'POST',
             headers: {
@@ -778,19 +783,20 @@ const __DEV__ = document.domain === 'localhost'
      }
      
    console.log("______________",userp)
-       
-   //  console.log("4444444444444444444444444444444444",userp.goals)     
+  
        alert(payment_count)
-       
-       //30 day duration
-      //  a=a+30;
-       
-      //  const dd=date
+ 
 if(payment_count<dur){
   DiscountAlgo();
 }
 
-function DiscountAlgo(){
+if(payment_count-dur==0){
+  console.log("????",payment_count)
+  console.log("????",dur)
+  flag[i]=true;
+}
+
+async function DiscountAlgo(){
 
 let goalsCompleted=0;
 let paymentsMissed=paymentsMiss;
@@ -799,6 +805,7 @@ let duration=dur;
 let minDiscount=2;
 let midDiscount=5;
 let maxDiscount=10;
+
 
 const total=100;
 let obtainedPoints=0;
@@ -876,16 +883,29 @@ console.log(obtainedPoints)
 
               if(obtainedPoints>=70)
               {
-                  console.log(maxDiscount)
+                 setdiscount(maxDiscount);
               }
               else if(obtainedPoints <70 && obtainedPoints>=45)
               {
-                  console.log(midDiscount)
+                setdiscount(midDiscount);
               }             
               else
               {
-                  console.log(minDiscount)
+                setdiscount(minDiscount);
               }
+
+    
+
+        const data = await fetch('/discount', 
+          { method: 'POST',
+            headers: {
+                    "Content-Type": "application/json"
+                  },
+            body: JSON.stringify({
+                 discount
+            })
+          })
+       
 } 
      },
      prefill: {
@@ -896,19 +916,28 @@ console.log(obtainedPoints)
    }
    const paymentObject = new window.Razorpay(options)
    paymentObject.open()
-  //  callProfilePage();
-  //  callProfilePage();
-  //  callProfilePage();
- }
-                    }> Payment </button>
-        
 
-         <button type="submit" className="btn btn-white" onClick={""} > Order Now!</button>
+ }
+                 }> Payment </button>:<button type="submit" className="goalbutton btn btn-outline-light" onClick={(e) => {
+                   e.preventDefault();
+                  
+                   dispatch({
+                    type: 'ADD_TO_ORDER',
+                    item: {
+                     discount:prod.discount||discount,
+                     price:prod.price,
+                     price75:prod.price75
+
+                    }
+                  })
+                  history('/Order');
+                  } }>Order Now!</button>
+        
+      }
             <div className="container d-flex justify-content-between align-items-center">
              
             </div>
-
-              <br/>  
+            <br/>  
                   <br/>
                   <br/>
                 </div>

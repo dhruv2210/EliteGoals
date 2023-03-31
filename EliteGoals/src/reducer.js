@@ -1,6 +1,7 @@
 export const initialState = {
     basket: [],
     goal:[],
+    order:[],
     ph:0,
     user: null,
     // user: JSON.parse(localStorage.getItem("user")),
@@ -27,6 +28,11 @@ export const initialState = {
           return {
             ...state,
             goal: [...state.goal, action.item],
+          };
+        case "ADD_TO_ORDER":
+          return {
+            ...state,
+            order: [action.item],
           };
       
       case "REMOVE_FROM_GOAL":
