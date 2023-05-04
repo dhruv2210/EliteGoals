@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { UserContext } from "../App";
-import "./profile.css";
+import "./css/profile.css";
 
 // let userData=[];
 const Profile = () => {
@@ -36,7 +36,7 @@ const Profile = () => {
   useEffect(() => {
     const getUser = async () => {
       const response = await axios.get('/profile');
-      console.log("Ayuuuuuuuuuuuuuuuuuuuuuuuuuu mayuuuuuuuuuuuuuuuu", response)
+     
       setUserData(response.data);
     }
     getUser();
@@ -63,7 +63,7 @@ const Profile = () => {
                         <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius" alt="User-Profile-Image" />
                       </div>
                       <h3 class="f-w-600">{userData.fname}  <br/>{userData.lname}</h3>
-                      {/* <p>Web Designer</p> */}
+              
                       <i class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ const Profile = () => {
                         </div>
                       </div>
                       <br/>
-                      {/* <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> */}
+                      
                       <div class="row">
                         <div class="col-sm-6">
                           <p class="m-b-10 f-w-600">Date of Birth</p>
@@ -130,23 +130,3 @@ export default Profile
 
 
 
-// const [userData,setUserData] = useState({
-//   title:"",
-//   price:0,
-//   price75:0,
-//   monthlyprice:0
-// })
-
-// const setValue = (e) => {
-//   setVal(e.target.value);
-// let bs=((basket[0].price) * 75) / 100;
-//   setmp(bs/mp);
-//   setUserData({monthlyprice:mp,title:basket[0].title, price:basket[0].price, price75:bs});
-//   console.log(userData);
-// }
-
-// const handleInputs = (e) => {
-//   const name = e.target.name;
-//   const value = e.target.value;
-//   setUserData({ ...userData, [name]: value });
-// }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "./ContactUs.css";
+import "./css/ContactUs.css";
 
 function Contactus() {
 
@@ -119,7 +119,7 @@ function Contactus() {
                 </div>
                 <div className=" col-12 mt-2 mb-2 ">
                   <textarea className="form-control" placeholder="Leave a comment here" name="message" onChange={handleInputs} id="floatingTextarea"></textarea>
-                  {/* <label for="floatingTextarea">Comments</label> */}
+                 
                 </div>
                 <div className="col-12 mt-2 mb-2">
                 <button type="submit" className="btn btn-outline-light" onClick={contactForm}><b>Send Message </b></button>
@@ -133,8 +133,6 @@ function Contactus() {
            {/* <!-- ======= Contact Details Section ======= --> */}
             <div className="container box" data-aos="fade-up">
               <p className="social">
-                {/* <a href="#"><span className="bi bi-twitter"></span></a>
-            <a href="#"><span className="bi bi-facebook"></span></a> */}
                 <div className="symbol first">
                   <table>
                     <tr>
@@ -317,7 +315,7 @@ function Contactus() {
             <div className="col-md-5 text-center text-md-end">
               <p>
                 <a href="https://wa.me/+918530314846"  target="_blank" className="btn d-inline-flex align-items-center">
-                  {/* <i className="bx bxl-apple"></i> */}
+               
                   <span>Join now!</span>
                 </a>{" "}
 

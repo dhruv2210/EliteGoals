@@ -1,6 +1,6 @@
 import { React, useContext, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import "./login.css";
+import "./css/login.css";
 import { UserContext } from "../App";
 
 
@@ -72,7 +72,7 @@ const Login = () => {
 
                 id="checkkk"
                 required=""
-                // maxlength="13"
+                
                 pattern="^((\+91[0-9]{10})|(0[0-9]{10}))$"
                 title="Please enter valid phone number" />
             </div>

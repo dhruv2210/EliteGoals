@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import React from "react";
-import "./AboutUs.css";
+import "./css/AboutUs.css";
 function AboutUs() {
 
 
@@ -17,7 +17,6 @@ function AboutUs() {
                         viewBox="0 0 1920 265"
                         version="1.1"
                         xmlns="http://www.w3.org/2000/svg"
-                    // xmlns:xlink="http://www.w3.org/1999/xlink"
                     >
                         <g
                             id="Page-1"

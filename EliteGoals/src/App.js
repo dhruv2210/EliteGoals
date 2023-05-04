@@ -39,7 +39,7 @@ const Routing = () => {
         <Route exact path="/Profile" element={<Profile></Profile>} />
         <Route exact path="/GoalList" element={<GoalList/>} />
         <Route exact path="/chatbot" element={<Chatbot/>}/>
-        <Route exact path="/chatbot" element={<Order/>}/>
+        <Route exact path="/Order" element={<Order/>}/>
     
       </Routes>
       <Footer></Footer>
@@ -55,7 +55,6 @@ function App() {
 
     <>
       <Router>
-      {/* changes done here ...... */}
         <UserContext.Provider value={{state,dispatch}}> 
           <Navbar></Navbar>
           <Routing/>

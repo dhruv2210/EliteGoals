@@ -11,7 +11,6 @@ function App() {
     <>
       <body>
         <Navbar />
-        {/* Banner carousel */}
         <section className="hero-section" id="hero">
           <div className="wave">
             <svg
@@ -114,7 +113,7 @@ function App() {
                             alt="Image"
                             className="phone-1"
                             data-aos="fade-right"
-                          // style={{ width:"220" ,padding:"10px" }}
+                         
                           />
 
                         </div>
@@ -133,8 +132,7 @@ function App() {
                             data-aos="fade-right"
                             data-aos-delay="2"
                           >
-                            {/* Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit. */}
+                           
                           </p>
                           <p
                             data-aos="fade-right"
@@ -174,10 +172,7 @@ function App() {
           <div className="row justify-content-center text-center">
               <div className="col-md-7 mb-5">
                 <h2 className="section-heading">Steps</h2>
-                {/* <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Facere illum obcaecati inventore velit laborum earum.
-                </p> */}
+               
               </div>
             </div>
             <div className="row">
@@ -227,16 +222,13 @@ function App() {
           </div>
         </section>
 
-        {/* Predefined goals */}
+      
         <section className="section">
           <div className="container" data-aos="fade-up">
             <div className="row justify-content-center text-center">
               <div className="col-md-7 mb-5">
                 <h2 className="section-heading">Goals</h2>
-                {/* <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Facere illum obcaecati inventore velit laborum earum.
-                </p> */}
+               
               </div>
             </div>
             <div className="row align-items-stretch">
@@ -426,14 +418,7 @@ function App() {
         </section>
         <section className="section cta-section">
           <div className="container">
-            {/* <div className="row align-items-center">
-      <div className="col-md-6 me-auto text-center text-md-start mb-5 mb-md-0">
-        <h2>Starts Publishing Your Apps</h2>
-      </div>
-      <div className="col-md-5 text-center text-md-end">
-        <p><a href="#" className="btn d-inline-flex align-items-center"><i className="bx bxl-apple"></i><span>App store</span></a> <a href="#" className="btn d-inline-flex align-items-center"><i className="bx bxl-play-store"></i><span>Google play</span></a></p>
-      </div>
-    </div> */}
+            
 
 
 

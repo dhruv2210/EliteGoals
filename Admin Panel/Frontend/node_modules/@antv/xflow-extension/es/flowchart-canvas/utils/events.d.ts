@@ -1,0 +1,14 @@
+import type { IGraphCommandService } from '@antv/xflow-core';
+/** 节点移动时，实时更新位置信息，内置之后可去掉 */
+export declare const movedNode: (e: any, cmds: IGraphCommandService) => Promise<void>;
+/** 修改节点大小 */
+export declare const resizeNode: (e: any, cmds: IGraphCommandService) => Promise<void>;
+export declare const getSelectedCellPorts: (eleId: string) => any;
+export declare const setTransform: (elements: HTMLElement[]) => void;
+export declare const resetTransform: () => void;
+/** 设置 ports visible */
+export declare const changePortsVisible: (visible: boolean, e?: any, showPortsOnNodeSelected?: boolean) => void;
+/** 添加辅助工具 */
+export declare const addTools: (e: any) => Promise<void>;
+/** 移除辅助工具 */
+export declare const removeTools: (e: any, cmds: IGraphCommandService) => Promise<void>;

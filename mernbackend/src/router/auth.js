@@ -148,7 +148,6 @@ router.post('/goal', authenticate, async (req, res) => {
   try {
     const { title, price, price75, monthlyprice, duration, imgURL } = req.body;
     const userGoal = await Register.findOne({ _id: req.userID });
-    // console.log("*******************", userGoal);
 
     if (userGoal) {
       const usersettedGoal = await userGoal.addGoal(title, price, price75, monthlyprice, duration, imgURL);
@@ -161,7 +160,6 @@ router.post('/goal', authenticate, async (req, res) => {
 
 router.get("/logout", (req, res) => {
   console.log("Heloo logout ***********");
-  // res.cookie.remove('jwtoken',{ path: '/login' })
   res.clearCookie('jwtoken', { path: '/' });
   res.status(200).send('User Logout');
 });

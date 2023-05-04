@@ -3,13 +3,9 @@ export const initialState = {
     goal:[],
     order:[],
     ph:0,
-    user: null,
-    // user: JSON.parse(localStorage.getItem("user")),
-    // address: {},
+   
   };
   
-  // export const getBasketTotal = (basket) =>
-  //   basket.reduce((amount, item) => item.price + amount, 0);
   
   const reducer = (state, action) => {
     console.log("action >>>>", action);
@@ -54,25 +50,6 @@ export const initialState = {
           ...state,
           goal: newBasket,
         };
-  
-      // case "SET_ADDRESS":
-      //   return {
-      //     ...state,
-      //     address: { ...action.item },
-      //   };
-  
-      // case "SET_USER":
-      //   return {
-      //     ...state,
-      //     user: action.user,
-      //   };
-  
-      // case "EMPTY_BASKET":
-      //   return {
-      //     ...state,
-      //     basket: [],
-      //   };
-
 
       default:
         return state;
