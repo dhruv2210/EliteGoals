@@ -79,6 +79,38 @@ app.post('/razorpay', async (req, res) => {
 	}
 })
 
+app.post('/orderpay', async (req, res) => {
+
+	try {
+		const { remaining_payment } = req.body
+		const a= remaining_payment
+		const amount= a
+		console.log("////////", amount)
+		// console.log("////////???????????????????????????????????????????????")
+
+		const payment_capture = 1
+		const currency = 'INR'
+
+		const options = {
+			amount: amount * 100,
+			currency,
+			receipt: shortid.generate(),
+			payment_capture,
+		}
+
+		const response = await razorpay.orders.create(options)
+		console.log(response)
+		res.json({
+			id: response.id,
+			currency: response.currency,
+			amount: response.amount,
+		})
+		console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",new Date(Date.now()))
+	} catch (error) {
+		console.log(error)
+	}
+})
+
 // ---------------Ayush---------------------------------------------------
 dotenv.config({ path: './config.env' });
 //const hbs = require("hbs");

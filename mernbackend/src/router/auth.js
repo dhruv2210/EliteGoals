@@ -198,26 +198,27 @@ router.post('/payment', authenticate, async (req, res) => {
 router.post('/discount', authenticate, async (req, res) => {
 
   try {
+    console.log("<><><><><>11111",req.body)
     console.log(req.body);
-    const { discount} = req.body;
+    const { discount,id} = req.body;
     console.log("<><><><><>",req.body)
     let f;
-    let uu;
-    const userPay = await Register.findOne({ _id: req.userID });
+    let uo;
+    const userDis = await Register.findOne({ _id: req.userID });
     let data;
 
-    userPay.goals.map((item) => {
-      const userG = Buffer.from(item._id);
+    userDis.goals.map((item) => {
+      const userD = Buffer.from(item._id);
       const i = Buffer.from(id);
 
-      f = Buffer.compare(userG, i);
+      f = Buffer.compare(userD, i);
       if (!f) {
-        uu = item;
-        uu.push(req.body);
-        data = userG;
+        uo = item;
+        uo.discount.push(req.body);
+        data = userD;
       }
     })
-    await userPay.save();
+    await userDis.save();
     res.status(201).json({ message: "user discount successfully added to mongodb" });
 
   } catch (error) {
