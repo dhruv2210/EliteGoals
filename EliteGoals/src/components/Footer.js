@@ -68,7 +68,6 @@ return (
                 Contactus
               </NavLink>
             </li>
-                {/* <li><a href="#">Get from the Play Store</a></li> */}
               </ul>
             </div>
           </div>

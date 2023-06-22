@@ -1,13 +1,9 @@
 import axios from 'axios';
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import Rating from "@material-ui/lab/Rating";
-// import Products from '../../../mernbackend/src/models/Products';
-import Card from "./Card";
 import { useStateValue } from "../StateProvider";
-// import Navbar from "./Navbar";
 import { useNavigate } from 'react-router-dom';
-import "./Goals.css";
+import "./css/Goals.css";
 
 
 function Home() {
@@ -22,7 +18,7 @@ function Home() {
     fetchdata();
   }, []);
   const [{ basket }, dispatch] = useStateValue();
-  //console.log('goal>>>>', basket.length);
+
 
   return (
  
@@ -49,7 +45,7 @@ function Home() {
 
                 <br/>
                 <button type="submit" className="goalbutton btn btn-outline-light" onClick={(e) => {
-                  //  e.preventDefault();
+                 
 
                   dispatch({
                     type: 'ADD_TO_BASKET',

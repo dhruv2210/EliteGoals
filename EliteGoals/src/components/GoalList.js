@@ -1,6 +1,6 @@
 
 
-import "./Goals.css";
+import "./css/Goals.css";
 import moment from "moment";
 import React, { useState ,useEffect,useContext} from 'react';
 import { useStateValue } from '../StateProvider';

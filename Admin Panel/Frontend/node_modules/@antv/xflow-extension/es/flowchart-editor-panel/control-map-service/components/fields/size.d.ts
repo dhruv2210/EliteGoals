@@ -1,0 +1,9 @@
+import React from 'react';
+interface IProps {
+    width?: number;
+    height?: number;
+    label?: string;
+    onChange?: (key: string, value: number) => void;
+}
+declare const Size: React.FC<IProps>;
+export default Size;

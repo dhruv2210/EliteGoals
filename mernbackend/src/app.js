@@ -1,11 +1,9 @@
 const dotenv = require('dotenv');
 const express = require("express");
 const path = require("path");
-// const app = express();
 
-// ________________dev_______________________
 const app = require('express')()
-// const path = require('path')
+
 const shortid = require('shortid')
 const Razorpay = require('razorpay')
 const cors = require('cors')
@@ -24,7 +22,7 @@ app.get('/logo.svg', (req, res) => {
 })
 
 app.post('/verification', (req, res) => {
-	// do a validation
+	
 	const secret = '12345678'
 
 	console.log(req.body)
@@ -53,8 +51,6 @@ app.post('/razorpay', async (req, res) => {
 		const { monthlypricee } = req.body
 		const a=monthlypricee
 		const amount= a
-		console.log("////////", amount)
-		// console.log("////////???????????????????????????????????????????????")
 
 		const payment_capture = 1
 		const currency = 'INR'
@@ -73,7 +69,7 @@ app.post('/razorpay', async (req, res) => {
 			currency: response.currency,
 			amount: response.amount,
 		})
-		console.log("iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",new Date(Date.now()))
+		console.log("Date",new Date(Date.now()))
 	} catch (error) {
 		console.log(error)
 	}
@@ -120,37 +116,9 @@ app.use(express.json());
 const Register = require("./models/register");
 const { time } = require('console');
 
-// const middleware = (req, res, next) => {
-//     console.log('Hello my middleware');
-//     next();
-// }
-
 app.use(require('./router/auth'));
 
 const port = 5000 || process.env.PORT;
-
-// const static_path = path.join(__dirname, "../public");
-// const template_path = path.join(__dirname, "../template/views");
-// const partials_path = path.join(__dirname, "../template/partials");
-
-
-// app.use(express.urlencoded({ extended: false }));
-
-// app.use(express.static(static_path));
-
-// app.set("view engine", "hbs");
-// app.set("views", template_path);
-// hbs.registerPartials(partials_path);
-
-// app.get("/", (req, res) => {
-//     res.send("req res app.get()");
-//     // res.render("index");
-// });
-
-// app.get("/register", (req, res) => {
-//     res.render("register");
-// })
-
 
 
 
@@ -160,7 +128,7 @@ app.listen(port, () => {
 });
 
 
-
+// schema
 // {
 //     "fname":"ayush",
 //     "lname":"thakor" ,

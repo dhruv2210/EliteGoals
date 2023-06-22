@@ -47,11 +47,7 @@ function Navbar() {
                     Contact Us
                   </NavLink>
                 </li>
-                {/* <li>
-                  <NavLink className="" to="/AddProduct">
-                    Add Product
-                  </NavLink>
-                </li> */}
+                
                 <li>
                   <NavLink className="" to="/Profile">
                     Profile
@@ -106,11 +102,7 @@ function Navbar() {
                       Contact Us
                     </NavLink>
                   </li>
-                  {/* <li>
-                    <NavLink className="" to="/AddProduct">
-                      Add Product
-                    </NavLink>
-                  </li> */}
+                  
                   <li>
                     <NavLink className="" to="/Login">
                       Login/Signup

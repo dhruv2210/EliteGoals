@@ -9,13 +9,11 @@ const SetGoal = () => {
   console.log('setgoal >>>', basket);
   const history = useNavigate();
 
-  console.log("heyyyyyyyy---",basket[0].title);
-  console.log("miaauuuuuuuuuu-----",basket[0].price);
   const [val, setVal] = useState(0);
   const [mp, setmp] = useState(0);
   const [userData, setUserData] = useState({});
   let a = 0;
-  console.log("66666",basket[0].imgURL);
+
 
   let bs=((basket[0].price) * 75) / 100;
   
@@ -27,10 +25,6 @@ const SetGoal = () => {
     setUserData({title:basket[0].title, price: basket[0].price, price75: bs, monthlyprice: mp,duration:a,imgURL:basket[0].imgURL});
   }
 
-  // console.log("My div",mp);
-  // let mm=mp+0;
-
-  // console.log("ayu",mm);
 
   const data = [6, 12, 24, 36];
   
